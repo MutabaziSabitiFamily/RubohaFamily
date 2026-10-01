@@ -1,0 +1,4859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mutabazi Sabiti Family</title>
+
+<style>
+    .login-screen {
+    position: fixed;
+    inset: 0;
+    min-height: 100vh;
+    background: #f4f7f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 9999;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.login-card button {
+    width: 100%;
+    margin-top: 10px;
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7f5;
+    color: #1d2b23;
+}
+
+header {
+    background: #173f2b;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin: 8px 0 0;
+    font-style: italic;
+}
+
+nav {
+    display: flex;
+    overflow-x: auto;
+    background: white;
+    padding: 10px;
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav button {
+    border: none;
+    background: #e8eee9;
+    padding: 11px 15px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+section {
+    display: none;
+}
+
+section.active {
+    display: block;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    margin-bottom: 15px;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.grid .card {
+    text-align: center;
+}
+
+.icon {
+    font-size: 30px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #65736b;
+}
+    
+
+.tree-photo,
+.tree-avatar {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.tree-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+}
+
+.tree-line {
+    font-size: 0;
+    line-height: 20px;
+    margin: 2px 0;
+}
+
+.tree-children {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+    .tree-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.tree-family-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 10px;
+}
+
+.tree-couple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tree-spouse-line {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0 5px;
+}
+
+.tree-generation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 10px;
+    padding-top: 25px;
+    position: relative;
+}
+
+.tree-generation::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: #2f6f4e;
+}
+
+.tree-family-branch > .tree-generation {
+    margin-top: 5px;
+    }
+    /* Family Tree Styling */
+
+.family-tree-visual {
+    text-align: center;
+    overflow-x: auto;
+    padding: 20px 10px;
+}
+
+.tree-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.tree-generation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.tree-family-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tree-couple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tree-spouse-line {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.tree-line {
+    font-size: 28px;
+    margin: 5px 0;
+}
+
+.tree-generation-label {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 15px 0 10px;
+}
+
+.tree-person-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 17px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+}
+
+.tree-photo {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+.family-logo {
+    width: 95px;
+    height: 95px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: white;
+    padding: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    flex-shrink: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 25px 20px;
+    background: linear-gradient(135deg, #1b5e20, #2e7d32, #66bb6a);
+    color: white;
+    text-align: left;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin: 6px 0 0;
+    font-size: 16px;
+    opacity: 0.95;
+    }
+</style>
+</head>
+
+<body>
+
+    <div id="loginScreen" class="login-screen">
+    <div class="card login-card">
+        <h2>🔐 Family Portal Login</h2>
+        <p>Sign in to the Mutabazi Sabiti Family Portal.</p>
+
+        <input type="email" id="loginEmail"
+               placeholder="Email address">
+
+        <input type="password" id="loginPassword"
+               placeholder="Password">
+
+        <button class="primary" onclick="loginUser()">
+    Sign In
+</button>
+        <p>
+    <a href="#" onclick="forgotPassword(); return false;">
+        Forgot Password?
+    </a>
+        </p>
+<p>
+    <a href="#" onclick="showSignupScreen(); return false;">
+        Create Family Account
+    </a>
+</p>
+        <p id="loginMessage" class="small"></p>
+    </div>
+</div>
+    <div id="signupScreen" class="login-screen" style="display: none;">
+    <div class="card login-card">
+        <h2>👨‍👩‍👧‍👦 Create Family Account</h2>
+        <p>Register for access to the Mutabazi Sabiti Family Portal.</p>
+
+        <input type="text"
+               id="signupName"
+               placeholder="Full name">
+
+        <input type="email"
+               id="signupEmail"
+               placeholder="Email address">
+
+        <input type="password"
+               id="signupPassword"
+               placeholder="Password">
+
+        <input type="password"
+               id="signupConfirmPassword"
+               placeholder="Confirm password">
+
+        <button class="primary" onclick="createFamilyAccount()">
+            Create Account
+        </button>
+
+        <p>
+            <a href="#" onclick="showLoginScreen(); return false;">
+                Already have an account? Sign In
+            </a>
+        </p>
+
+        <p id="signupMessage" class="small"></p>
+    </div>
+    </div>
+    <div id="resetPasswordScreen" class="login-screen" style="display: none;">
+    <div class="card login-card">
+        <h2>🔐 Set New Password</h2>
+        <p>Enter your new password below.</p>
+
+        <input type="password"
+               id="newPassword"
+               placeholder="New password">
+
+        <input type="password"
+               id="confirmPassword"
+               placeholder="Confirm new password">
+
+        <button class="primary" onclick="updatePassword()">
+            Change Password
+        </button>
+
+        <p id="resetPasswordMessage" class="small"></p>
+    </div>
+    </div>
+<header>
+    <img src="Family%20logo.png"
+         alt="Mutabazi Sabiti Family Logo"
+         class="family-logo">
+
+    <div>
+        <h1>Mutabazi Sabiti Family</h1>
+        <p>Our roots, our strength, our legacy.</p>
+    </div>
+</header>
+
+<nav>
+    <button onclick="showPage('home')">🏠 Home</button>
+    <button onclick="showPage('tree')">🌳 Family Tree</button>
+    <button onclick="showPage('members')">👨‍👩‍👧 Members</button>
+    <button onclick="showPage('gallery')">📸 Gallery</button>
+    <button onclick="showPage('birthdays')">🎂 Birthdays</button>
+    <button onclick="showPage('announcements')">📢 News</button>
+    <button onclick="showPage('calendar')">📅 Calendar</button>
+    <button onclick="showPage('book')">📖 Family Book</button>
+    <button onclick="showPage('messages')">💌 Family Messages</button>
+    <button onclick="showPage('achievements')">🏆 Achievements</button>
+    <button onclick="logoutUser()">🚪 Logout</button>
+</nav>
+
+<main id="portalContent" style="display: none;">
+<button
+    id="globalBackButton"
+    onclick="goBack()"
+    style="display:none; margin:15px 0;"
+>
+    ← Back
+</button>    
+
+<section id="home" class="active">
+
+<div class="card">
+    <h2>Welcome to the Mutabazi Sabiti Family</h2>
+
+    <p>
+        Welcome to our family home — a place where our history,
+        relationships, memories, celebrations and legacy are preserved
+        for present and future generations.
+    </p>
+
+    <p><strong>“Our roots, our strength, our legacy.”</strong></p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+    <div class="icon">🌳</div>
+    <strong>Family Tree</strong>
+</div>
+
+<div class="card">
+    <div class="icon">👨‍👩‍👧‍👦</div>
+    <strong>Family Members</strong>
+</div>
+
+
+<div class="card">
+    <h3>🎂 Birthday Management</h3>
+    <p>Add and manage family birthdays.</p>
+
+    <button class="primary" onclick="openBirthdaysAdmin()">
+        🎂 Manage Birthdays
+    </button>
+</div>
+<div class="card">
+    <div class="icon">📸</div>
+    <strong>Family Gallery</strong>
+</div>
+
+<div class="card">
+    <div class="icon">🎂</div>
+    <strong>Birthdays</strong>
+</div>
+
+<div class="card">
+    <div class="icon">📢</div>
+    <strong>Announcements</strong>
+</div>
+
+<div class="card">
+    <div class="icon">📖</div>
+    <strong>Family Book</strong>
+</div>
+
+<div class="card" id="adminDashboardCard" style="display: none;">
+    <h2>👑 Administrator Dashboard</h2>
+    <p>Manage family information, announcements, birthdays, calendar events, gallery and the family book.</p>
+    <button class="primary" onclick="openAdminDashboard()">
+        👑 Open Administrator Dashboard
+    </button>
+</div>
+
+</section>
+    
+<section id="adminDashboard">
+
+    <div class="card">
+        <h2>👑 Administrator Dashboard</h2>
+        <p>Welcome to the family administration area.</p>
+    </div>
+
+    <div class="grid">
+
+        <div class="card" onclick="showPage('familyMembersAdmin')" style="cursor:pointer;">
+    <strong>Manage Family Members</strong>
+    <p>View and manage family members</p>
+</div>
+
+        <div class="card"
+     onclick="showPage('announcementsAdmin')"
+     style="cursor:pointer;">
+    <div class="icon">📢</div>
+    <strong>Manage Announcements</strong>
+    <p>Add and manage family announcements</p>
+</div>
+
+        <div class="card" onclick="showPage('birthdaysAdmin'); loadAdminBirthdays();" style="cursor:pointer;">
+    <div class="icon">🎂</div>
+    <strong>Manage Birthdays</strong>
+</div>
+
+        <div class="card"
+     onclick="showPage('calendarAdmin'); loadAdminCalendar();"
+     style="cursor:pointer;">
+    <div class="icon">📅</div>
+    <strong>Manage Calendar</strong>
+    <p>Add and manage family calendar events</p>
+        </div>
+
+        <div class="card"
+     onclick="showPage('galleryAdmin')"
+     style="cursor:pointer;">
+    <div class="icon">📸</div>
+    <strong>Manage Gallery</strong>
+    <p>Add and manage family photos</p>
+</div>
+
+        <div class="card">
+            <div class="icon">📖</div>
+            <strong>Manage Family Book</strong>
+        </div>
+<div class="card"
+     onclick="showPage('achievementsAdmin')"
+     style="cursor:pointer;">
+
+    <div class="icon">🏆</div>
+
+    <strong>Manage Achievements</strong>
+
+    <p>
+        Add and manage family achievements and milestones
+    </p>
+
+</div>
+    </div>
+<div class="card"
+     onclick="showPage('familyAccountsAdmin'); loadUnlinkedFamilyAccounts();"
+     style="cursor:pointer;">
+
+    <div class="icon">👤</div>
+
+    <strong>Family Accounts</strong>
+
+    <p>
+        Link newly registered accounts to family members
+    </p>
+
+</div>
+</section>
+    <section id="achievementsAdmin">
+
+    <div class="card">
+
+        <h2>🏆 Manage Family Achievements</h2>
+
+        <p>
+            Add important achievements and milestones
+            of Mutabazi Sabiti Family members.
+        </p>
+
+        <input
+            type="text"
+            id="achievementTitle"
+            placeholder="Achievement title"
+            style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ccc; border-radius:10px;"
+        >
+
+        <input
+            type="text"
+            id="achievementMember"
+            placeholder="Family member name"
+            style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ccc; border-radius:10px;"
+        >
+
+        <select
+            id="achievementCategory"
+            style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ccc; border-radius:10px;"
+        >
+            <option value="">Select category</option>
+            <option value="Education">🎓 Education</option>
+            <option value="Career">💼 Career</option>
+            <option value="Award">🏅 Award & Recognition</option>
+            <option value="Family Milestone">💍 Family Milestone</option>
+            <option value="Birth">👶 New Family Member</option>
+            <option value="Business">🏢 Business</option>
+            <option value="Community">🤝 Community Service</option>
+            <option value="Other">⭐ Other</option>
+        </select>
+
+        <input
+            type="date"
+            id="achievementDate"
+            style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ccc; border-radius:10px;"
+        >
+
+        <textarea
+            id="achievementDescription"
+            placeholder="Describe the achievement..."
+            rows="5"
+            style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ccc; border-radius:10px; resize:vertical;"
+        ></textarea>
+
+        <button
+            class="primary"
+            onclick="addFamilyAchievement()"
+        >
+            🏆 Add Achievement
+        </button>
+
+        <p id="achievementAdminStatus" class="small"></p>
+
+    </div>
+
+    <div id="adminAchievementsList"></div>
+
+    </section>
+    <section id="announcementsAdmin">
+
+    <div class="card">
+        <h2>📢 Manage Family Announcements</h2>
+        <p>Add and manage important family announcements.</p>
+
+        <label>Announcement Title</label>
+        <input
+            type="text"
+            id="announcementTitle"
+            placeholder="Enter announcement title"
+        >
+
+        <label>Announcement Content</label>
+        <textarea
+            id="announcementContent"
+            placeholder="Write the announcement..."
+            rows="5"
+        ></textarea>
+        <label>Announcement Image (optional)</label>
+<input
+    type="file"
+    id="announcementImage"
+    accept="image/*"
+>
+
+        <button class="primary" onclick="addAnnouncement()">
+            ➕ Add Announcement
+        </button>
+
+        <button onclick="showPage('adminDashboard')">
+            ⬅️ Back to Administrator Dashboard
+        </button>
+
+        <p id="announcementAdminMessage"></p>
+    </div>
+
+    <div id="adminAnnouncementsList"></div>
+
+    </section>
+    <section id="calendarAdmin">
+
+    <div class="card">
+        <h2>📅 Manage Family Calendar</h2>
+        <p>Add and manage important family events.</p>
+
+        <label>Event Title</label>
+        <input
+            type="text"
+            id="calendarEventTitle"
+            placeholder="Enter event title"
+        >
+
+        <label>Event Date</label>
+        <input
+            type="date"
+            id="calendarEventDate"
+        >
+
+        <label>Event Description</label>
+        <textarea
+            id="calendarEventDescription"
+            placeholder="Write a description of the event..."
+            rows="4"
+        ></textarea>
+
+        <button class="primary" onclick="addCalendarEvent()">
+            ➕ Add Calendar Event
+        </button>
+
+        <button onclick="showPage('adminDashboard')">
+            ⬅️ Back to Administrator Dashboard
+        </button>
+
+        <p id="calendarAdminMessage"></p>
+    </div>
+
+    <div id="adminCalendarList"></div>
+
+    </section>
+    
+<section id="galleryAdmin">
+
+    <div class="card">
+        <h2>📸 Manage Family Gallery</h2>
+        <p>Add and manage family photos.</p>
+
+        <label>Photo Title</label>
+        <input
+            type="text"
+            id="galleryPhotoTitle"
+            placeholder="Enter photo title"
+        >
+
+        <label>Photo Description</label>
+        <textarea
+            id="galleryPhotoDescription"
+            placeholder="Write a description of the photo..."
+            rows="4"
+        ></textarea>
+
+        <label>Select Photo</label>
+        <input
+            type="file"
+            id="galleryPhotoFile"
+            accept="image/*"
+        >
+
+        <button class="primary" onclick="addGalleryPhoto()">
+    ➕ Add Family Photo
+</button>
+
+        <button onclick="showPage('adminDashboard')">
+            ⬅️ Back to Administrator Dashboard
+        </button>
+
+        <p id="galleryAdminMessage"></p>
+    </div>
+
+    <div id="adminGalleryList"></div>
+
+</section>
+<section id="familyMembersAdmin">
+
+    <div class="card">
+        <h2>👨‍👩‍👧‍👦 Manage Family Members</h2>
+        <p>Add and manage members of the Mutabazi Sabiti Family.</p>
+
+        <label>First Name</label>
+<input
+    type="text"
+    id="memberFirstName"
+    placeholder="First name"
+>
+
+<label>Middle Names</label>
+<input
+    type="text"
+    id="memberMiddleNames"
+    placeholder="Middle names (optional)"
+>
+
+<label>Surname</label>
+<input
+    type="text"
+    id="memberSurname"
+    placeholder="Surname"
+>
+
+<label>Display Name</label>
+<input
+    type="text"
+    id="memberDisplayName"
+    placeholder="Name displayed in the family portal"
+>
+
+<label>Preferred Name</label>
+<input
+    type="text"
+    id="memberPreferredName"
+    placeholder="Preferred name (optional)"
+>
+
+<label>Date of Birth</label>
+<input
+    type="date"
+    id="memberDateOfBirth"
+>
+        
+<label>Profile Photo</label>
+<input
+    type="file"
+    id="memberProfilePhoto"
+    accept="image/*"
+>
+<p class="small">Choose a clear photo of the family member.</p>
+<label>Gender</label>
+<select id="memberGender">
+    <option value="">Select gender</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+</select>
+
+<label>Occupation</label>
+<input
+    type="text"
+    id="memberOccupation"
+    placeholder="Occupation"
+>
+
+<label>Phone</label>
+<input
+    type="tel"
+    id="memberPhone"
+    placeholder="Phone number"
+>
+
+<label>Email</label>
+<input
+    type="email"
+    id="memberEmail"
+    placeholder="Email address"
+>
+
+<label>Village</label>
+<input
+    type="text"
+    id="memberVillage"
+    placeholder="Village"
+>
+
+<label>District</label>
+<input
+    type="text"
+    id="memberDistrict"
+    placeholder="District"
+>
+
+<label>Country</label>
+<input
+    type="text"
+    id="memberCountry"
+    value="Uganda"
+    placeholder="Country"
+>
+
+<label>Role</label>
+<input
+    type="text"
+    id="memberRole"
+    placeholder="Family role (e.g. Parent, Child, Grandparent)"
+>
+
+<label>Biography</label>
+<textarea
+    id="memberBiography"
+    placeholder="Short family biography"
+    rows="4"
+></textarea>
+
+        <button class="primary" onclick="addFamilyMember()">
+    ➕ Add Family Member
+</button>
+
+<button onclick="showPage('adminDashboard')">
+    ⬅️ Back to Administrator Dashboard
+    </button>
+
+        <p id="memberAdminMessage"></p>
+    </div>
+
+    <div id="adminFamilyMembers"></div>
+
+</section>
+
+<section id="birthdaysAdmin">
+
+    <div class="card">
+        <h2>🎂 Manage Family Birthdays</h2>
+        <p>Add and manage family birthdays.</p>
+
+        <label>Family Member Name</label>
+        <input
+            type="text"
+            id="birthdayMemberName"
+            placeholder="Enter family member's name"
+        >
+
+        <label>Birthday</label>
+        <input
+            type="date"
+            id="birthdayDate"
+        >
+
+        <label>Description</label>
+        <textarea
+            id="birthdayDescription"
+            placeholder="Optional birthday message or description"
+            rows="3"
+        ></textarea>
+
+        <button class="primary" onclick="addFamilyBirthday()">
+            ➕ Add Birthday
+        </button>
+
+        <button onclick="showPage('adminDashboard')">
+            ⬅️ Back to Administrator Dashboard
+        </button>
+
+        <p id="birthdayAdminMessage"></p>
+    </div>
+
+    <div id="adminBirthdaysList"></div>
+
+</section>
+    
+<section id="familyAccountsAdmin">
+
+    <div class="card">
+
+        <h2>👤 Manage Family Accounts</h2>
+
+        <p>
+            View newly registered family accounts and link them
+            to the correct family members.
+        </p>
+
+        <div id="unlinkedFamilyAccounts">
+    <p class="small">
+        Family account requests will appear here.
+    </p>
+</div>
+
+        <button onclick="showPage('adminDashboard')">
+            ⬅️ Back to Administrator Dashboard
+        </button>
+
+    </div>
+
+</section>
+<section id="tree">
+
+<div class="card">
+    <h2>🌳 Our Family Tree</h2>
+    <p>Explore our family relationships.</p>
+
+    <input
+        type="search"
+        id="treeSearch"
+        placeholder="🔎 Search family tree..."
+        oninput="filterFamilyTree()"
+    >
+</div>
+
+<div id="familyTreeContainer">
+
+    <div class="card">
+        <p>Loading family tree...</p>
+    </div>
+
+</div>
+
+</section>
+
+<section id="members">
+
+<div class="card">
+    <h2>👨‍👩‍👧‍👦 Family Members</h2>
+    <p>Our family directory</p>
+
+    <input
+        type="search"
+        id="memberSearch"
+        placeholder="🔎 Search family members..."
+        oninput="filterMembers()"
+    >
+</div>
+
+<div id="membersList"></div>
+
+</section>
+
+<section id="gallery">
+</section>
+
+<section id="birthdays">
+<div class="card">
+<h2>🎂 Birthdays</h2>
+<p>Family birthdays will be displayed here.</p>
+</div>
+</section>
+
+<section id="announcements">
+<div class="card">
+<h2>📢 Family Announcements</h2>
+<p>Important family announcements will appear here.</p>
+</div>
+</section>
+
+<section id="calendar">
+
+<div class="card">
+    <h2>📅 Family Calendar</h2>
+    <p>Family events and important dates</p>
+</div>
+
+<div id="calendarList"></div>
+
+</section>
+
+<section id="book">
+    <div class="card">
+        <h2>📖 Our Family Book</h2>
+
+        <h3>🌳 Our Roots, Our Strength, Our Legacy</h3>
+
+        <p>
+            Welcome to the Mutabazi Sabiti Family Book.
+            This book preserves our family history, our roots,
+            our memories, and the legacy we pass from one generation
+            to the next.
+        </p>
+
+        <hr>
+
+        <h3>📚 Contents</h3>
+
+        <p>📜 <strong>Preface</strong></p>
+        <p>🌿 <strong>Introduction</strong></p>
+        <p>🌳 <strong>Our Family Tree</strong></p>
+        <p>👨‍👩‍👧 <strong>Our Family History</strong></p>
+        <p>❤️ <strong>Our Family Values</strong></p>
+        <p>📖 <strong>Family Life Stories</strong></p>
+        <p>🙏 <strong>Family Prayers and Blessings</strong></p>
+        <p>🎵 <strong>Family Anthem</strong></p>
+        <p>📸 <strong>Family Memories</strong></p>
+        <p>🕊️ <strong>Remembering Our Loved Ones</strong></p>
+
+        <hr>
+
+        <p>
+            <strong>“Our roots, our strength, our legacy.”</strong>
+        </p>
+    </div>
+</section>
+    <section id="messages">
+
+    <div class="card">
+        <h2>💌 Family Messages</h2>
+
+        <p>
+            Leave a message, greeting, memory, encouragement,
+            or special thought for the Mutabazi Sabiti Family.
+        </p>
+
+        <textarea id="familyMessage"
+                  placeholder="Write your message here..."
+                  rows="5"
+                  style="width:100%; padding:12px; border:1px solid #ccc; border-radius:10px; resize:vertical;">
+        </textarea>
+
+        <button class="primary"
+                onclick="postFamilyMessage()">
+            💌 Post Message
+        </button>
+
+        <p id="messageStatus" class="small"></p>
+    </div>
+
+    <div id="familyMessagesList"></div>
+
+    </section>
+    <section id="achievements">
+
+    <div class="card">
+        <h2>🏆 Family Achievements & Milestones</h2>
+
+        <p>
+            Celebrate and preserve the achievements, milestones
+            and memorable accomplishments of the Mutabazi Sabiti Family.
+        </p>
+
+        <input
+            type="search"
+            id="achievementSearch"
+            placeholder="🔎 Search achievements..."
+            oninput="filterAchievements()"
+            style="width:100%; padding:12px; border:1px solid #ccc; border-radius:10px;"
+        >
+    </div>
+
+    <div id="achievementsList">
+
+        <div class="card">
+            <p>Loading family achievements...</p>
+        </div>
+
+    </div>
+
+    </section>
+
+</main>
+
+<footer id="portalFooter" style="display: none;">
+    Mutabazi Sabiti Family<br>
+    Our roots, our strength, our legacy.
+</footer>
+
+<script>
+let previousPage = "home";
+function showPage(pageId) {
+
+    const currentSection = document.querySelector("section.active");
+
+    if (currentSection && currentSection.id !== pageId) {
+        previousPage = currentSection.id;
+    }
+
+    const sections = document.querySelectorAll("section");
+    sections.forEach(function(section) {
+        section.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+
+    if (pageId === "tree") {
+        loadFamilyTree();
+    }
+
+    if (pageId === "messages") {
+        loadFamilyMessages();
+    }
+
+    if (pageId === "achievements") {
+        loadFamilyAchievements();
+    }
+
+    if (pageId === "achievementsAdmin") {
+        loadAdminAchievements();
+    }
+
+    if (pageId === "announcementsAdmin") {
+        loadAdminAnnouncements();
+    }
+const backButton = document.getElementById("globalBackButton");
+
+if (backButton) {
+    backButton.style.display =
+        pageId === "home" ? "none" : "inline-block";
+}
+        window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+    
+function goBack() {
+    showPage(previousPage || "home");
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = "https://dkjibindcgqhnvftgrhg.supabase.co";
+
+/*
+  Paste your sb_publishable_... key between the quotes below.
+  NEVER use your sb_secret_... key here.
+*/
+const SUPABASE_KEY = "sb_publishable_wCEv1m6o9qIS-OFChZk3wg_LPyZIMuR";
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+    async function checkUserSession() {
+
+    const { data: { session } } =
+        await supabaseClient.auth.getSession();
+
+    if (session) {
+
+        document.getElementById("loginScreen").style.display = "none";
+        document.getElementById("portalContent").style.display = "block";
+        document.getElementById("portalFooter").style.display = "block";
+
+        loadFamilyMembers();
+        loadAnnouncements();
+        loadCalendar();
+        checkAdminAccess();
+
+    } else {
+
+        document.getElementById("loginScreen").style.display = "flex";
+        document.getElementById("portalContent").style.display = "none";
+        document.getElementById("portalFooter").style.display = "none";
+    }
+}
+
+window.addEventListener("load", function () {
+    checkUserSession();
+});
+
+window.loginUser = async function() {
+
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value;
+    const message = document.getElementById("loginMessage");
+
+    if (!email || !password) {
+        message.textContent = "Please enter your email and password.";
+        return;
+    }
+
+    message.textContent = "Signing in...";
+
+    try {
+
+        const { data, error } =
+            await supabaseClient.auth.signInWithPassword({
+                email: email,
+                password: password
+            });
+
+        if (error) {
+            message.textContent = "Login error: " + error.message;
+            return;
+        }
+
+        if (!data || !data.session) {
+            message.textContent =
+                "Login failed: No session was created.";
+            return;
+        }
+
+        message.textContent = "Login successful.";
+
+        document.getElementById("loginScreen").style.display = "none";
+        document.getElementById("portalContent").style.display = "block";
+        document.getElementById("portalFooter").style.display = "block";
+
+        loadFamilyMembers();
+        loadAnnouncements();
+        loadCalendar();
+        checkAdminAccess();
+        showSignedInUser();
+
+    } catch (error) {
+
+        message.textContent =
+            "Login error: " + error.message;
+
+        console.error(error);
+    }
+}
+    async function showSignedInUser() {
+
+    try {
+
+        const { data: { user }, error: userError } =
+            await supabaseClient.auth.getUser();
+
+        if (userError || !user) {
+            return;
+        }
+
+        const { data: member, error: memberError } =
+            await supabaseClient
+                .from("family_members")
+                .select("display_name, preferred_name, first_name, middle_names, surname, role")
+                .eq("auth_user_id", user.id)
+                .maybeSingle();
+
+        let signedInName = user.email;
+
+        if (!memberError && member) {
+            signedInName =
+                member.display_name ||
+                member.preferred_name ||
+                [member.first_name, member.middle_names, member.surname]
+                    .filter(Boolean)
+                    .join(" ");
+        }
+
+        let signedInBox = document.getElementById("signedInUser");
+
+        if (!signedInBox) {
+            signedInBox = document.createElement("div");
+            signedInBox.id = "signedInUser";
+
+            signedInBox.style.padding = "10px";
+            signedInBox.style.margin = "10px 0";
+            signedInBox.style.borderRadius = "8px";
+            signedInBox.style.textAlign = "center";
+            signedInBox.style.fontWeight = "bold";
+
+            const portalContent =
+                document.getElementById("portalContent");
+
+            if (portalContent) {
+                portalContent.insertBefore(
+                    signedInBox,
+                    portalContent.firstChild
+                );
+            }
+        }
+
+        signedInBox.textContent =
+            "Signed in as: " + signedInName;
+
+    } catch (error) {
+
+        console.error("Could not display signed-in user:", error);
+
+    }
+}
+    async function loadUnlinkedFamilyAccounts() {
+
+    const container =
+        document.getElementById("unlinkedFamilyAccounts");
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML =
+        "<p class='small'>Loading family account requests...</p>";
+
+    try {
+
+        const { data: requests, error: requestError } =
+            await supabaseClient
+                .from("family_account_requests")
+                .select("id, auth_user_id, full_name, email, status, created_at")
+                .eq("status", "pending")
+                .order("created_at", { ascending: false });
+
+        if (requestError) {
+
+            console.error(
+                "Error loading family account requests:",
+                requestError
+            );
+
+            container.innerHTML =
+                "<p>Unable to load family account requests.</p>";
+
+            return;
+        }
+
+        if (!requests || requests.length === 0) {
+
+            container.innerHTML =
+                "<p>No family account requests found.</p>";
+
+            return;
+        }
+
+        const { data: members, error: memberError } =
+            await supabaseClient
+                .from("family_members")
+                .select(
+                    "id, display_name, preferred_name, first_name, middle_names, surname, auth_user_id"
+                )
+                .is("auth_user_id", null)
+                .order("display_name", { ascending: true });
+
+        container.innerHTML = "";
+
+    if (memberError) {
+
+    console.error(
+        "Error loading family members:",
+        memberError
+    );
+
+    container.innerHTML =
+        "<p>Unable to load family members.</p>";
+
+    return;
+}
+
+requests.forEach(function(request) {
+
+    const card =
+        document.createElement("div");
+
+    card.className = "card";
+
+    card.style.marginBottom = "15px";
+
+    card.innerHTML = `
+        <h3>👤 ${request.full_name || "Name not provided"}</h3>
+
+        <p>
+            📧 <strong>Email:</strong>
+            ${request.email || "Not provided"}
+        </p>
+
+        <p>
+            📌 <strong>Status:</strong>
+            ${request.status || "pending"}
+        </p>
+
+        <label>
+            Link to family member:
+        </label>
+
+        <select
+            id="memberSelect_${request.id}"
+            style="width:100%; margin:10px 0;"
+        >
+            <option value="">
+                Select family member
+            </option>
+        </select>
+
+        <button
+            class="primary"
+            type="button"
+            onclick="linkFamilyAccount('${request.id}', '${request.auth_user_id}')"
+        >
+            Link Account
+        </button>
+    `;
+
+    container.appendChild(card);
+
+    const select =
+        document.getElementById(
+            "memberSelect_" + request.id
+        );
+
+    members.forEach(function(member) {
+
+        const option =
+            document.createElement("option");
+
+        option.value = member.id;
+
+        option.textContent =
+            member.display_name ||
+            member.preferred_name ||
+            [
+                member.first_name,
+                member.middle_names,
+                member.surname
+            ]
+            .filter(Boolean)
+            .join(" ");
+
+        select.appendChild(option);
+
+    });
+
+});
+
+    } catch (error) {
+
+        console.error(
+            "Unexpected error loading account requests:",
+            error
+        );
+
+        container.innerHTML =
+            "<p>Unable to load family account requests.</p>";
+    }
+}
+    
+async function linkFamilyAccount(requestId, authUserId) {
+
+    const select =
+        document.getElementById(
+            "memberSelect_" + requestId
+        );
+
+    if (!select || !select.value) {
+
+        alert(
+            "Please select the correct family member first."
+        );
+
+        return;
+    }
+
+    const memberId = select.value;
+
+const button =
+    select.parentElement.querySelector("button");
+
+if (button) {
+    button.disabled = true;
+    button.textContent = "Linking...";
+}
+
+try {
+
+        const { error: memberError } =
+            await supabaseClient
+                .from("family_members")
+                .update({
+                    auth_user_id: authUserId
+                })
+                .eq("id", memberId)
+                .is("auth_user_id", null);
+
+        if (memberError) {
+
+    console.error(
+        "Error linking family account:",
+        memberError
+    );
+
+    if (button) {
+        button.disabled = false;
+        button.textContent = "Link Account";
+    }
+
+    alert(
+        "Unable to link the account: " +
+        memberError.message
+    );
+
+    return;
+}
+
+        const { error: requestError } =
+            await supabaseClient
+                .from("family_account_requests")
+                .update({
+                    status: "approved"
+                })
+                .eq("id", requestId)
+                .eq("auth_user_id", authUserId)
+                .eq("status", "pending");
+
+        if (requestError) {
+
+            console.error(
+                "Error approving account request:",
+                requestError
+            );
+
+            alert(
+                "The family member was linked, but the request could not be approved."
+            );
+
+            return;
+        }
+
+        alert(
+            "Family account linked successfully."
+        );
+
+        loadUnlinkedFamilyAccounts();
+
+    } catch (error) {
+
+        console.error(
+            "Unexpected error linking family account:",
+            error
+        );
+
+        alert(
+            "Unable to link the family account."
+        );
+    }
+    }    
+    function showSignupScreen() {
+    document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("resetPasswordScreen").style.display = "none";
+    document.getElementById("signupScreen").style.display = "block";
+}
+
+function showLoginScreen() {
+    document.getElementById("signupScreen").style.display = "none";
+    document.getElementById("resetPasswordScreen").style.display = "none";
+    document.getElementById("loginScreen").style.display = "block";
+}
+   async function createFamilyAccount() {
+
+    const name = document.getElementById("signupName").value.trim();
+    const email = document.getElementById("signupEmail").value.trim();
+    const password = document.getElementById("signupPassword").value;
+    const confirmPassword =
+        document.getElementById("signupConfirmPassword").value;
+
+    const message = document.getElementById("signupMessage");
+
+    if (!name || !email || !password || !confirmPassword) {
+        message.textContent = "Please fill in all fields.";
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        message.textContent = "Passwords do not match.";
+        return;
+    }
+
+    if (password.length < 6) {
+        message.textContent =
+            "Password must be at least 6 characters long.";
+        return;
+    }
+
+    message.textContent = "Creating your account...";
+
+    try {
+
+        const { data, error } =
+    await supabaseClient.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+            data: {
+                full_name: name
+            }
+        }
+    });
+
+        if (error) {
+            message.textContent =
+                "Account creation error: " + error.message;
+            return;
+        }
+
+        if (!data || !data.user) {
+            message.textContent =
+                "Account could not be created.";
+            return;
+        }
+
+        message.textContent =
+            "Account created successfully. Please check your email to confirm your account.";
+
+        document.getElementById("signupName").value = "";
+        document.getElementById("signupEmail").value = "";
+        document.getElementById("signupPassword").value = "";
+        document.getElementById("signupConfirmPassword").value = "";
+
+    } catch (error) {
+
+        message.textContent =
+            "Account creation error: " + error.message;
+
+        console.error(error);
+    }
+} 
+    
+    async function forgotPassword() {
+
+    const email = document.getElementById("loginEmail").value.trim();
+    const message = document.getElementById("loginMessage");
+
+    if (!email) {
+        message.textContent = "Please enter your email address first.";
+        return;
+    }
+
+    message.textContent = "Sending password reset email...";
+
+    const { error } = await supabaseClient.auth.resetPasswordForEmail(
+        email,
+        {
+            redirectTo: "https://mutabazisabitifamily.github.io/MutabaziSabitiFamily/"
+        }
+    );
+
+    if (error) {
+        message.textContent = error.message;
+        return;
+    }
+
+    message.textContent =
+        "Password reset instructions have been sent to your email.";
+    }
+    async function updatePassword() {
+
+    const newPassword = document.getElementById("newPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const message = document.getElementById("resetPasswordMessage");
+
+    if (!newPassword || !confirmPassword) {
+        message.textContent = "Please enter and confirm your new password.";
+        return;
+    }
+
+    if (newPassword !== confirmPassword) {
+        message.textContent = "Passwords do not match.";
+        return;
+    }
+
+    if (newPassword.length < 6) {
+        message.textContent = "Password must be at least 6 characters.";
+        return;
+    }
+
+    message.textContent = "Changing password...";
+
+    const { error } = await supabaseClient.auth.updateUser({
+        password: newPassword
+    });
+
+    if (error) {
+        message.textContent = error.message;
+        return;
+    }
+
+    message.textContent = "Password changed successfully.";
+
+    document.getElementById("newPassword").value = "";
+    document.getElementById("confirmPassword").value = "";
+    }
+    supabaseClient.auth.onAuthStateChange((event, session) => {
+
+    if (event === "PASSWORD_RECOVERY") {
+
+        document.getElementById("loginScreen").style.display = "none";
+        document.getElementById("resetPasswordScreen").style.display = "block";
+
+    }
+
+});
+    async function checkAdminAccess() {
+
+    const { data, error } = await supabaseClient.auth.getUser();
+
+    const adminCard = document.getElementById("adminDashboardCard");
+
+    if (!adminCard) return;
+
+    if (
+        !error &&
+        data.user &&
+        data.user.email === "mutabazimbabazi@gmail.com"
+    ) {
+        adminCard.style.display = "block";
+    } else {
+        adminCard.style.display = "none";
+    }
+    }
+async function loadFamilyMembers() {
+
+    const membersList = document.getElementById("membersList");
+
+    if (!membersList) return;
+
+    membersList.innerHTML = `
+        <div class="card">
+            <p>Loading family members...</p>
+        </div>
+    `;
+
+    const { data, error } = await supabaseClient
+        .from("family_members")
+        .select(`
+            id,
+            member_number,
+            first_name,
+            middle_names,
+            surname,
+            display_name,
+            preferred_name,
+            date_of_birth,
+            profile_photo_url,
+            biography,
+            occupation,
+            education,
+            village,
+            parish,
+            district,
+            country,
+            status,
+            role
+        `)
+        .order("first_name", { ascending: true });
+
+    if (error) {
+        membersList.innerHTML = `
+            <div class="card">
+                <h3>Unable to load family members</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+        console.error(error);
+        return;
+    }
+
+    window.familyMembers = data || [];
+
+    displayMembers(window.familyMembers);
+}
+    async function addFamilyMember() {
+
+    const message = document.getElementById("memberAdminMessage");
+
+    const firstName = document.getElementById("memberFirstName").value.trim();
+    const middleNames = document.getElementById("memberMiddleNames").value.trim();
+    const surname = document.getElementById("memberSurname").value.trim();
+    const displayName = document.getElementById("memberDisplayName").value.trim();
+    const preferredName = document.getElementById("memberPreferredName").value.trim();
+    const dateOfBirth = document.getElementById("memberDateOfBirth").value;
+    const gender = document.getElementById("memberGender").value;
+    const occupation = document.getElementById("memberOccupation").value.trim();
+    const phone = document.getElementById("memberPhone").value.trim();
+    const email = document.getElementById("memberEmail").value.trim();
+    const village = document.getElementById("memberVillage").value.trim();
+    const district = document.getElementById("memberDistrict").value.trim();
+    const country = document.getElementById("memberCountry").value.trim();
+    const role = document.getElementById("memberRole").value.trim();
+    const biography = document.getElementById("memberBiography").value.trim();
+const photoFile = document.getElementById("memberProfilePhoto").files[0];
+        
+    if (!firstName || !surname) {
+        message.textContent = "Please enter the first name and surname.";
+        return;
+    }
+
+    message.textContent = "Saving family member...";
+let photoUrl = null;
+
+if (photoFile) {
+
+    const fileExtension = photoFile.name.split(".").pop();
+    const fileName = `${Date.now()}_${firstName}_${surname}.${fileExtension}`;
+
+    const { error: uploadError } = await supabaseClient
+        .storage
+        .from("family_photos")
+        .upload(fileName, photoFile);
+
+    if (uploadError) {
+        message.textContent = "Unable to upload profile photo: " + uploadError.message;
+        console.error(uploadError);
+        return;
+    }
+
+    const { data: publicUrlData } = supabaseClient
+        .storage
+        .from("family_photos")
+        .getPublicUrl(fileName);
+
+    photoUrl = publicUrlData.publicUrl;
+    }
+    const { data, error } = await supabaseClient
+    .from("family_members")
+    .insert([
+        {
+            first_name: firstName,
+                middle_names: middleNames || null,
+                surname: surname,
+                display_name: displayName || `${firstName} ${surname}`,
+                preferred_name: preferredName || null,
+                date_of_birth: dateOfBirth || null,
+                gender: gender || null,
+                occupation: occupation || null,
+                phone: phone || null,
+                email: email || null,
+                village: village || null,
+                district: district || null,
+                country: country || "Uganda",
+                role: role || null,
+biography: biography || null,
+profile_photo_url: photoUrl,
+status: "living"
+            }
+        ])
+        .select()
+        .single();
+
+    if (error) {
+        message.textContent = "Unable to add family member: " + error.message;
+        console.error(error);
+        return;
+    }
+
+    message.textContent = "✅ Family member added successfully.";
+
+    document.getElementById("memberFirstName").value = "";
+    document.getElementById("memberMiddleNames").value = "";
+    document.getElementById("memberSurname").value = "";
+    document.getElementById("memberDisplayName").value = "";
+    document.getElementById("memberPreferredName").value = "";
+    document.getElementById("memberDateOfBirth").value = "";
+    document.getElementById("memberGender").value = "";
+    document.getElementById("memberOccupation").value = "";
+    document.getElementById("memberPhone").value = "";
+    document.getElementById("memberEmail").value = "";
+    document.getElementById("memberVillage").value = "";
+    document.getElementById("memberDistrict").value = "";
+    document.getElementById("memberCountry").value = "Uganda";
+    document.getElementById("memberRole").value = "";
+    document.getElementById("memberBiography").value = "";
+      document.getElementById("memberProfilePhoto").value = "";  
+
+    await loadFamilyMembers();
+    }
+    async function loadFamilyGallery() {
+
+    const gallery = document.getElementById("gallery");
+
+    if (!gallery) return;
+
+    gallery.innerHTML = `
+        <div class="card">
+            <h2>📸 Family Gallery</h2>
+            <p>Loading family photos...</p>
+        </div>
+    `;
+
+    const { data, error, count } = await supabaseClient
+        .from("family_gallery")
+        .select("id, title, description, photo_url, event_date, created_at", {
+            count: "exact"
+        })
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        gallery.innerHTML = `
+            <div class="card">
+                <h3>Gallery database error</h3>
+                <p>${error.message}</p>
+                <p><strong>Code:</strong> ${error.code || "none"}</p>
+            </div>
+        `;
+        console.error("Gallery error:", error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        gallery.innerHTML = `
+            <div class="card">
+                <h2>📸 Family Gallery</h2>
+                <p><strong>Records returned:</strong> ${count}</p>
+                <p><strong>Data:</strong> ${JSON.stringify(data)}</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = `
+        <div class="card">
+            <h2>📸 Family Gallery</h2>
+            <p>Our family memories</p>
+        </div>
+    `;
+
+    data.forEach(photo => {
+
+        html += `
+            <div class="card">
+                <img src="${photo.photo_url}"
+                     alt="${photo.title || "Family photo"}"
+                     style="width:100%;max-width:500px;border-radius:12px;display:block;margin:auto;">
+
+                ${photo.title
+                    ? `<h3>${photo.title}</h3>`
+                    : ""}
+
+                ${photo.description
+                    ? `<p>${photo.description}</p>`
+                    : ""}
+
+                ${photo.event_date
+                    ? `<p><strong>Date:</strong> ${photo.event_date}</p>`
+                    : ""}
+                    <button onclick="deleteGalleryPhoto(${photo.id})"
+        style="margin-top:10px;">
+    🗑️ Delete Photo
+</button>
+            </div>
+        `;
+    });
+
+    gallery.innerHTML = html;
+}         
+    async function deleteGalleryPhoto(id) {
+
+    const confirmed = confirm(
+        "Are you sure you want to delete this family photo?"
+    );
+
+    if (!confirmed) return;
+
+    const { error } = await supabaseClient
+        .from("family_gallery")
+        .delete()
+        .eq("id", id);
+
+    if (error) {
+        alert("Failed to delete photo: " + error.message);
+        console.error("Delete gallery error:", error);
+        return;
+    }
+
+    alert("Photo deleted successfully.");
+
+    loadFamilyGallery();
+    }
+    
+    function displayMembers(members) {
+
+    const membersList = document.getElementById("membersList");
+
+    if (!membersList) return;
+
+    if (!members || members.length === 0) {
+        membersList.innerHTML = `
+            <div class="card">
+                <p>No family members found.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = "";
+
+    members.forEach(member => {
+
+        const name =
+            member.display_name ||
+            [
+                member.first_name,
+                member.middle_names,
+                member.surname
+            ]
+            .filter(Boolean)
+            .join(" ");
+
+        const photo = member.profile_photo_url
+            ? `<img src="${member.profile_photo_url}"
+                    alt="${name}"
+                    style="width:90px;height:90px;object-fit:cover;border-radius:50%;margin-bottom:10px;">`
+            : `<div style="font-size:60px;">👤</div>`;
+
+        html += `
+            <div class="card member-card"
+                 data-name="${name.toLowerCase()}">
+
+                ${photo}
+
+                <h3>${name || "Family Member"}</h3>
+
+                ${member.preferred_name
+                    ? `<p>Preferred name: ${member.preferred_name}</p>`
+                    : ""}
+
+                ${member.role
+                    ? `<p><strong>Role:</strong> ${member.role}</p>`
+                    : ""}
+
+                ${member.occupation
+                    ? `<p><strong>Occupation:</strong> ${member.occupation}</p>`
+                    : ""}
+
+                ${member.date_of_birth
+                    ? `<p><strong>Date of birth:</strong> ${member.date_of_birth}</p>`
+                    : ""}
+
+                ${member.district
+                    ? `<p><strong>District:</strong> ${member.district}</p>`
+                    : ""}
+
+                ${member.biography
+                    ? `<p>${member.biography}</p>`
+                    : ""}
+                    <button class="primary" onclick="viewMemberProfile('${member.id}')">
+    👤 View Full Profile
+</button>
+            </div>
+        `;
+    });
+
+    membersList.innerHTML = html;
+}
+
+async function loadBirthdays() {
+
+    const birthdays = document.getElementById("birthdays");
+
+    if (!birthdays) return;
+
+    birthdays.innerHTML = `
+        <div class="card">
+            <h2>🎂 Family Birthdays</h2>
+            <p>Loading birthdays...</p>
+        </div>
+    `;
+
+    const { data, error } = await supabaseClient
+        .from("family_birthdays")
+        .select("id, member_name, birth_date, description")
+        .order("birth_date", { ascending: true });
+
+    if (error) {
+        birthdays.innerHTML = `
+            <div class="card">
+                <h3>Birthday database error</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+        console.error("Birthday error:", error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        birthdays.innerHTML = `
+            <div class="card">
+                <h2>🎂 Family Birthdays</h2>
+                <p>No birthdays have been added yet.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = `
+        <div class="card">
+            <h2>🎂 Family Birthdays</h2>
+            <p>Celebrating our family members</p>
+        </div>
+    `;
+
+    data.forEach(birthday => {
+
+        html += `
+            <div class="card">
+                <h3>🎉 ${birthday.member_name}</h3>
+                <p><strong>Birthday:</strong> ${birthday.birth_date}</p>
+                ${birthday.description
+                    ? `<p>${birthday.description}</p>`
+                    : ""}
+            </div>
+        `;
+    });
+
+    birthdays.innerHTML = html;
+}
+
+    function openBirthdaysAdmin() {
+
+    const birthdaysSection = document.getElementById("birthdays");
+
+    if (!birthdaysSection) {
+        alert("Birthday management area is not available yet.");
+        return;
+    }
+
+    showPage("birthdays");
+
+    birthdaysSection.scrollIntoView({
+        behavior: "smooth"
+    });
+    }
+    async function loadAdminBirthdays() {
+
+    const container = document.getElementById("adminBirthdaysList");
+
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="card">
+            <p>Loading birthdays...</p>
+        </div>
+    `;
+
+    const { data, error } = await supabaseClient
+        .from("family_birthdays")
+        .select("id, member_name, birth_date, description")
+        .order("birth_date", { ascending: true });
+
+    if (error) {
+        container.innerHTML = `
+            <div class="card">
+                <h3>Unable to load birthdays</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+        console.error("Admin birthday error:", error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        container.innerHTML = `
+            <div class="card">
+                <p>No birthdays found.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = `
+        <div class="card">
+            <h3>🎂 Existing Birthdays</h3>
+            <p>Family birthdays currently in the database.</p>
+        </div>
+    `;
+
+    data.forEach(birthday => {
+
+        html += `
+            <div class="card">
+                <h3>🎉 ${birthday.member_name}</h3>
+                <p><strong>Birthday:</strong> ${birthday.birth_date}</p>
+
+                ${birthday.description
+                    ? `<p>${birthday.description}</p>`
+                    : ""}
+                    <button class="primary"
+    onclick="editFamilyBirthday('${birthday.id}')">
+    ✏️ Edit Birthday
+</button>
+<button
+    onclick="deleteFamilyBirthday('${birthday.id}', '${birthday.member_name.replace(/'/g, "\\'")}')">
+    🗑️ Delete Birthday
+</button>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+}
+    async function editFamilyBirthday(birthdayId) {
+
+    const { data: birthday, error } = await supabaseClient
+        .from("family_birthdays")
+        .select("*")
+        .eq("id", birthdayId)
+        .single();
+
+    if (error) {
+        alert("Unable to load this birthday.");
+        console.error(error);
+        return;
+    }
+
+    document.getElementById("birthdayMemberName").value =
+        birthday.member_name || "";
+
+    document.getElementById("birthdayDate").value =
+        birthday.birth_date || "";
+
+    document.getElementById("birthdayDescription").value =
+        birthday.description || "";
+
+    window.editingBirthdayId = birthdayId;
+
+    const button =
+        document.querySelector('#birthdaysAdmin button.primary');
+
+    button.textContent = "💾 Save Birthday";
+
+    button.setAttribute(
+        "onclick",
+        "updateFamilyBirthday()"
+    );
+
+    document.getElementById("birthdayAdminMessage").textContent =
+        "✏️ Editing birthday for " + birthday.member_name;
+
+    document.getElementById("birthdaysAdmin").scrollIntoView({
+        behavior: "smooth"
+    });
+    }
+    async function updateFamilyBirthday() {
+
+    const birthdayId = window.editingBirthdayId;
+
+    if (!birthdayId) {
+        alert("No birthday is currently being edited.");
+        return;
+    }
+
+    const message = document.getElementById("birthdayAdminMessage");
+
+    const memberName =
+        document.getElementById("birthdayMemberName").value.trim();
+
+    const birthDate =
+        document.getElementById("birthdayDate").value;
+
+    const description =
+        document.getElementById("birthdayDescription").value.trim();
+
+    if (!memberName || !birthDate) {
+        message.textContent =
+            "Please enter the family member's name and birthday.";
+        return;
+    }
+
+    message.textContent = "Saving birthday...";
+
+    const { error } = await supabaseClient
+        .from("family_birthdays")
+        .update({
+            member_name: memberName,
+            birth_date: birthDate,
+            description: description || null
+        })
+        .eq("id", birthdayId);
+
+    if (error) {
+        message.textContent =
+            "Unable to save birthday: " + error.message;
+
+        console.error(error);
+        return;
+    }
+
+    message.textContent =
+        "✅ Birthday updated successfully.";
+
+    window.editingBirthdayId = null;
+
+    const button =
+        document.querySelector('#birthdaysAdmin button.primary');
+
+    button.textContent = "➕ Add Birthday";
+
+    button.setAttribute(
+        "onclick",
+        "addFamilyBirthday()"
+    );
+
+    document.getElementById("birthdayMemberName").value = "";
+    document.getElementById("birthdayDate").value = "";
+    document.getElementById("birthdayDescription").value = "";
+
+    await loadAdminBirthdays();
+    await loadBirthdays();
+    }
+    async function deleteFamilyBirthday(birthdayId, memberName) {
+
+    const confirmed = confirm(
+        "Are you sure you want to delete the birthday for " +
+        memberName +
+        "?\n\nThis action cannot be undone."
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    const message = document.getElementById("birthdayAdminMessage");
+
+    if (message) {
+        message.textContent =
+            "Deleting birthday for " + memberName + "...";
+    }
+
+    const { error } = await supabaseClient
+        .from("family_birthdays")
+        .delete()
+        .eq("id", birthdayId);
+
+    if (error) {
+
+        if (message) {
+            message.textContent =
+                "Unable to delete birthday: " + error.message;
+        }
+
+        console.error(error);
+        return;
+    }
+
+    if (message) {
+        message.textContent =
+            "✅ Birthday for " +
+            memberName +
+            " was deleted successfully.";
+    }
+
+    await loadAdminBirthdays();
+    await loadBirthdays();
+    }
+async function addFamilyBirthday() {
+
+    const memberName =
+        document.getElementById("birthdayMemberName").value.trim();
+
+    const birthDate =
+        document.getElementById("birthdayDate").value;
+
+    const description =
+        document.getElementById("birthdayDescription").value.trim();
+
+    const message =
+        document.getElementById("birthdayAdminMessage");
+
+    if (!memberName || !birthDate) {
+        message.textContent =
+            "Please enter the family member's name and birthday.";
+        return;
+    }
+
+    message.textContent = "Saving birthday...";
+
+    const { error } = await supabaseClient
+        .from("family_birthdays")
+        .insert({
+            member_name: memberName,
+            birth_date: birthDate,
+            description: description || null
+        });
+
+    if (error) {
+        message.textContent =
+            "Unable to save birthday: " + error.message;
+
+        console.error("Birthday save error:", error);
+        return;
+    }
+
+    message.textContent =
+        "✅ Birthday added successfully.";
+
+    document.getElementById("birthdayMemberName").value = "";
+    document.getElementById("birthdayDate").value = "";
+    document.getElementById("birthdayDescription").value = "";
+
+    await loadAdminBirthdays();
+    await loadBirthdays();
+}
+async function loadAnnouncements() {
+
+    const announcements = document.getElementById("announcements");
+
+    if (!announcements) return;
+
+    announcements.innerHTML = `
+        <div class="card">
+            <h2>📢 Family Announcements</h2>
+            <p>Loading announcements...</p>
+        </div>
+    `;
+
+    const { data, error } = await supabaseClient
+        .from("Announcements")
+        .select("id, title, content")
+.order("created_at", { ascending: false });
+    if (error) {
+        announcements.innerHTML = `
+            <div class="card">
+                <h3>Announcement database error</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+        console.error("Announcement error:", error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        announcements.innerHTML = `
+            <div class="card">
+                <h2>📢 Family Announcements</h2>
+                <p>No announcements have been added yet.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = `
+        <div class="card">
+            <h2>📢 Family Announcements</h2>
+            <p>Important family announcements</p>
+        </div>
+    `;
+
+    data.forEach(announcement => {
+
+        html += `
+            <div class="card">
+                <h3>📢 ${announcement.title}</h3>
+
+
+                ${announcement.content
+    ? `<p>${announcement.content}</p>`
+    : ""}
+    <button class="primary"
+    onclick="editAnnouncement('${announcement.id}')">
+    ✏️ Edit Announcement
+</button>
+            </div>
+        `;
+    });
+
+    announcements.innerHTML = html;
+}
+async function loadAdminAnnouncements() {
+
+    const container =
+        document.getElementById("adminAnnouncementsList");
+
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="card">
+            <p>Loading announcements...</p>
+        </div>
+    `;
+
+    const { data, error } = await supabaseClient
+        .from("Announcements")
+        .select("id, title, content, created_at, image_url")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        container.innerHTML = `
+            <div class="card">
+                <h3>Unable to load announcements</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+        console.error("Admin announcement error:", error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        container.innerHTML = `
+            <div class="card">
+                <p>No announcements found.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = `
+        <div class="card">
+            <h3>📢 Existing Announcements</h3>
+            <p>Family announcements currently in the database.</p>
+        </div>
+    `;
+
+    data.forEach(announcement => {
+
+        html += `
+            <div class="card">
+                <h3>📢 ${announcement.title}</h3>
+
+                ${announcement.content
+                    ? `<p>${announcement.content}</p>`
+                    : ""}
+                    ${announcement.image_url
+    ? `<img src="${announcement.image_url}"
+           alt="${announcement.title || "Announcement image"}"
+           style="width:100%;max-width:600px;border-radius:12px;display:block;margin:15px auto;">`
+    : ""}
+
+                <button class="primary"
+                    onclick="editAnnouncement('${announcement.id}')">
+                    ✏️ Edit Announcement
+                </button>
+                <button
+    onclick="deleteAnnouncement('${announcement.id}', '${announcement.title.replace(/'/g, "\\'")}')">
+    🗑️ Delete Announcement
+</button>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+    }
+    async function addAnnouncement() {
+
+    const title =
+        document.getElementById("announcementTitle").value.trim();
+
+    const content =
+        document.getElementById("announcementContent").value.trim();
+        const imageInput =
+    document.getElementById("announcementImage");
+
+const imageFile =
+    imageInput.files.length ? imageInput.files[0] : null;
+
+    const message =
+        document.getElementById("announcementAdminMessage");
+
+    if (!title || !content) {
+        message.textContent =
+            "Please enter an announcement title and content.";
+        return;
+    }
+
+    message.textContent = "Saving announcement...";
+        let imageUrl = null;
+
+if (imageFile) {
+
+    const fileName =
+        Date.now() + "_" + imageFile.name.replace(/\s+/g, "_");
+
+    const filePath =
+        "announcements/" + fileName;
+
+    const { error: uploadError } =
+        await supabaseClient.storage
+            .from("family_photos")
+            .upload(filePath, imageFile);
+
+    if (uploadError) {
+        message.textContent =
+            "Unable to upload announcement image: " +
+            uploadError.message;
+
+        console.error("Announcement image upload error:", uploadError);
+        return;
+    }
+
+    const { data: publicUrlData } =
+        supabaseClient.storage
+            .from("family_photos")
+            .getPublicUrl(filePath);
+
+    imageUrl = publicUrlData.publicUrl;
+}
+
+    const { error } = await supabaseClient
+        .from("Announcements")
+        .insert({
+    title: title,
+    content: content,
+    image_url: imageUrl
+});
+
+    if (error) {
+        message.textContent =
+            "Unable to add announcement: " + error.message;
+
+        console.error("Add announcement error:", error);
+        return;
+    }
+
+    message.textContent =
+        "✅ Announcement added successfully.";
+
+    document.getElementById("announcementTitle").value = "";
+    document.getElementById("announcementContent").value = "";
+        document.getElementById("announcementImage").value = "";
+
+    await loadAdminAnnouncements();
+    await loadAnnouncements();
+}
+    async function editAnnouncement(announcementId) {
+
+    const { data: announcement, error } = await supabaseClient
+        .from("Announcements")
+        .select("*")
+        .eq("id", announcementId)
+        .single();
+
+    if (error) {
+        alert("Unable to load this announcement.");
+        console.error(error);
+        return;
+    }
+
+    document.getElementById("announcementTitle").value =
+        announcement.title || "";
+
+    document.getElementById("announcementContent").value =
+        announcement.content || "";
+
+    window.editingAnnouncementId = announcementId;
+
+    const button =
+        document.querySelector('#announcementsAdmin button.primary');
+
+    button.textContent = "💾 Save Announcement";
+
+    button.setAttribute(
+        "onclick",
+        "updateAnnouncement()"
+    );
+
+    document.getElementById("announcementAdminMessage").textContent =
+        "✏️ Editing announcement: " + announcement.title;
+
+    document.getElementById("announcementsAdmin").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+    async function updateAnnouncement() {
+
+    const announcementId = window.editingAnnouncementId;
+
+    if (!announcementId) {
+        alert("No announcement is currently being edited.");
+        return;
+    }
+
+    const title =
+        document.getElementById("announcementTitle").value.trim();
+
+    const content =
+        document.getElementById("announcementContent").value.trim();
+
+    const message =
+        document.getElementById("announcementAdminMessage");
+
+    if (!title || !content) {
+        message.textContent =
+            "Please enter an announcement title and content.";
+        return;
+    }
+
+    message.textContent = "Saving announcement...";
+
+    const { error } = await supabaseClient
+        .from("Announcements")
+        .update({
+            title: title,
+            content: content
+        })
+        .eq("id", announcementId);
+
+    if (error) {
+        message.textContent =
+            "Unable to save announcement: " + error.message;
+
+        console.error("Update announcement error:", error);
+        return;
+    }
+
+    message.textContent =
+        "✅ Announcement updated successfully.";
+
+    window.editingAnnouncementId = null;
+
+    const button =
+        document.querySelector('#announcementsAdmin button.primary');
+
+    button.textContent = "➕ Add Announcement";
+
+    button.setAttribute(
+        "onclick",
+        "addAnnouncement()"
+    );
+
+    document.getElementById("announcementTitle").value = "";
+    document.getElementById("announcementContent").value = "";
+
+    await loadAdminAnnouncements();
+    await loadAnnouncements();
+    }
+    async function deleteAnnouncement(announcementId, announcementTitle) {
+
+    const confirmed = confirm(
+        "Are you sure you want to delete this announcement?\n\n" +
+        announcementTitle +
+        "\n\nThis action cannot be undone."
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    const message =
+        document.getElementById("announcementAdminMessage");
+
+    if (message) {
+        message.textContent =
+            "Deleting announcement...";
+    }
+
+    const { error } = await supabaseClient
+        .from("Announcements")
+        .delete()
+        .eq("id", announcementId);
+
+    if (error) {
+
+        if (message) {
+            message.textContent =
+                "Unable to delete announcement: " + error.message;
+        }
+
+        console.error("Delete announcement error:", error);
+        return;
+    }
+
+    if (message) {
+        message.textContent =
+            "✅ Announcement deleted successfully.";
+    }
+
+    await loadAdminAnnouncements();
+    await loadAnnouncements();
+    }
+    async function addCalendarEvent() {
+
+    const title =
+        document.getElementById("calendarEventTitle").value.trim();
+
+    const eventDate =
+        document.getElementById("calendarEventDate").value;
+
+    const description =
+        document.getElementById("calendarEventDescription").value.trim();
+
+    const message =
+        document.getElementById("calendarAdminMessage");
+
+    if (!title || !eventDate) {
+        message.textContent =
+            "Please enter the event title and date.";
+        return;
+    }
+
+    message.textContent = "Saving calendar event...";
+
+    const { error } = await supabaseClient
+        .from("family_calendar")
+        .insert({
+            title: title,
+            event_date: eventDate,
+            event_type: "Family Event",
+            description: description || null
+        });
+
+    if (error) {
+        message.textContent =
+            "Unable to add calendar event: " + error.message;
+
+        console.error("Add calendar event error:", error);
+        return;
+    }
+
+    message.textContent =
+        "✅ Calendar event added successfully.";
+
+    document.getElementById("calendarEventTitle").value = "";
+    document.getElementById("calendarEventDate").value = "";
+    document.getElementById("calendarEventDescription").value = "";
+}
+    async function loadAdminCalendar() {
+
+    const container =
+        document.getElementById("adminCalendarList");
+
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="card">
+            <p>Loading calendar events...</p>
+        </div>
+    `;
+
+    const { data, error } = await supabaseClient
+        .from("family_calendar")
+        .select("id, title, event_date, event_type, description")
+        .order("event_date", { ascending: true });
+
+    if (error) {
+        container.innerHTML = `
+            <div class="card">
+                <h3>Unable to load calendar events</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+        console.error("Admin calendar error:", error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        container.innerHTML = `
+            <div class="card">
+                <p>No calendar events found.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = `
+        <div class="card">
+            <h3>📅 Existing Calendar Events</h3>
+            <p>Family events currently in the database.</p>
+        </div>
+    `;
+
+    data.forEach(event => {
+
+        html += `
+            <div class="card">
+
+                <h3>📅 ${event.title}</h3>
+
+                <p>
+                    <strong>Date:</strong>
+                    ${event.event_date}
+                </p>
+
+                ${event.event_type
+                    ? `<p><strong>Type:</strong> ${event.event_type}</p>`
+                    : ""}
+
+                ${event.description
+                    ? `<p>${event.description}</p>`
+                    : ""}
+                    <button class="primary"
+    onclick="editCalendarEvent('${event.id}')">
+    ✏️ Edit Calendar Event
+</button>
+<button
+    onclick="deleteCalendarEvent('${event.id}', '${event.title.replace(/'/g, "\\'")}')">
+    🗑️ Delete Calendar Event
+</button>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+}
+    async function loadCalendar() {
+
+    const container = document.getElementById("calendarList");
+
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="card">
+            <p>Loading family calendar...</p>
+        </div>
+    `;
+
+    const { data, error } = await supabaseClient
+        .from("family_calendar")
+        .select("id, title, event_date, event_type, description")
+        .order("event_date", { ascending: true });
+
+    if (error) {
+        container.innerHTML = `
+            <div class="card">
+                <h3>Unable to load family calendar</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+        console.error("Calendar error:", error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        container.innerHTML = `
+            <div class="card">
+                <p>No family calendar events have been added yet.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = "";
+
+    data.forEach(event => {
+
+        html += `
+            <div class="card">
+
+                <h3>📅 ${event.title}</h3>
+
+                <p>
+                    <strong>Date:</strong>
+                    ${event.event_date}
+                </p>
+
+                ${event.event_type
+                    ? `<p><strong>Type:</strong> ${event.event_type}</p>`
+                    : ""}
+
+                ${event.description
+                    ? `<p>${event.description}</p>`
+                    : ""}
+
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+    }
+    async function editCalendarEvent(eventId) {
+
+    const { data: event, error } = await supabaseClient
+        .from("family_calendar")
+        .select("*")
+        .eq("id", eventId)
+        .single();
+
+    if (error) {
+        alert("Unable to load this calendar event.");
+        console.error(error);
+        return;
+    }
+
+    document.getElementById("calendarEventTitle").value =
+        event.title || "";
+
+    document.getElementById("calendarEventDate").value =
+        event.event_date || "";
+
+    document.getElementById("calendarEventDescription").value =
+        event.description || "";
+
+    window.editingCalendarEventId = eventId;
+
+    const button =
+        document.querySelector('#calendarAdmin button.primary');
+
+    button.textContent = "💾 Save Calendar Event";
+
+    button.setAttribute(
+        "onclick",
+        "updateCalendarEvent()"
+    );
+
+    document.getElementById("calendarAdminMessage").textContent =
+        "✏️ Editing event: " + event.title;
+
+    document.getElementById("calendarAdmin").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+    async function updateCalendarEvent() {
+
+    const eventId = window.editingCalendarEventId;
+
+    if (!eventId) {
+        alert("No calendar event is currently being edited.");
+        return;
+    }
+
+    const title =
+        document.getElementById("calendarEventTitle").value.trim();
+
+    const eventDate =
+        document.getElementById("calendarEventDate").value;
+
+    const description =
+        document.getElementById("calendarEventDescription").value.trim();
+
+    const message =
+        document.getElementById("calendarAdminMessage");
+
+    if (!title || !eventDate) {
+        message.textContent =
+            "Please enter the event title and date.";
+        return;
+    }
+
+    message.textContent = "Saving calendar event...";
+
+    const { error } = await supabaseClient
+        .from("family_calendar")
+        .update({
+            title: title,
+            event_date: eventDate,
+            description: description || null
+        })
+        .eq("id", eventId);
+
+    if (error) {
+        message.textContent =
+            "Unable to save calendar event: " + error.message;
+
+        console.error("Update calendar event error:", error);
+        return;
+    }
+
+    message.textContent =
+        "✅ Calendar event updated successfully.";
+
+    window.editingCalendarEventId = null;
+
+    const button =
+        document.querySelector('#calendarAdmin button.primary');
+
+    button.textContent = "➕ Add Calendar Event";
+
+    button.setAttribute(
+        "onclick",
+        "addCalendarEvent()"
+    );
+
+    document.getElementById("calendarEventTitle").value = "";
+    document.getElementById("calendarEventDate").value = "";
+    document.getElementById("calendarEventDescription").value = "";
+
+    await loadAdminCalendar();
+    }
+    async function deleteCalendarEvent(eventId, eventTitle) {
+
+    const confirmed = confirm(
+        "Are you sure you want to delete this calendar event?\n\n" +
+        eventTitle +
+        "\n\nThis action cannot be undone."
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    const message =
+        document.getElementById("calendarAdminMessage");
+
+    if (message) {
+        message.textContent =
+            "Deleting calendar event...";
+    }
+
+    const { error } = await supabaseClient
+        .from("family_calendar")
+        .delete()
+        .eq("id", eventId);
+
+    if (error) {
+
+        if (message) {
+            message.textContent =
+                "Unable to delete calendar event: " +
+                error.message;
+        }
+
+        console.error("Delete calendar event error:", error);
+        return;
+    }
+
+    if (message) {
+        message.textContent =
+            "✅ Calendar event deleted successfully.";
+    }
+
+    await loadAdminCalendar();
+}
+async function loadCalendar() {
+
+    const calendar = document.getElementById("calendar");
+
+    if (!calendar) return;
+
+    calendar.innerHTML = `
+        <div class="card">
+            <h2>📅 Family Calendar</h2>
+            <p>Loading family events...</p>
+        </div>
+    `;
+
+    const { data, error } = await supabaseClient
+        .from("family_calendar")
+        .select("id, title, description, event_date, event_time, location, event_type")
+        .order("event_date", { ascending: true });
+
+    if (error) {
+        calendar.innerHTML = `
+            <div class="card">
+                <h3>Calendar database error</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+        console.error("Calendar error:", error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        calendar.innerHTML = `
+            <div class="card">
+                <h2>📅 Family Calendar</h2>
+                <p>No family events have been added yet.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = `
+        <div class="card">
+            <h2>📅 Family Calendar</h2>
+            <p>Family events and important dates</p>
+        </div>
+    `;
+
+    data.forEach(event => {
+
+        html += `
+            <div class="card">
+                <h3>📅 ${event.title}</h3>
+
+                ${event.event_date
+                    ? `<p><strong>Date:</strong> ${event.event_date}</p>`
+                    : ""}
+
+                ${event.event_time
+                    ? `<p><strong>Time:</strong> ${event.event_time}</p>`
+                    : ""}
+
+                ${event.location
+                    ? `<p><strong>Location:</strong> ${event.location}</p>`
+                    : ""}
+
+                ${event.event_type
+                    ? `<p><strong>Type:</strong> ${event.event_type}</p>`
+                    : ""}
+
+                ${event.description
+                    ? `<p>${event.description}</p>`
+                    : ""}
+            </div>
+        `;
+    });
+
+    calendar.innerHTML = html;
+}
+
+function filterMembers() {
+
+    const search =
+        document.getElementById("memberSearch").value
+        .toLowerCase()
+        .trim();
+
+    const filtered = (window.familyMembers || []).filter(member => {
+
+        const name =
+            member.display_name ||
+            [
+                member.first_name,
+                member.middle_names,
+                member.surname
+            ]
+            .filter(Boolean)
+            .join(" ");
+
+        return name.toLowerCase().includes(search);
+    });
+
+    displayMembers(filtered);
+    }
+    async function viewMemberProfile(memberId) {
+
+    const { data: member, error } = await supabaseClient
+        .from("family_members")
+        .select(`
+            id,
+            member_number,
+            first_name,
+            middle_names,
+            surname,
+            display_name,
+            preferred_name,
+            date_of_birth,
+            place_of_birth,
+            gender,
+            profile_photo_url,
+            biography,
+            occupation,
+            education,
+            phone,
+            email,
+            village,
+            parish,
+            sub_county,
+            district,
+            country,
+            status,
+            date_of_death,
+            burial_place,
+            family_description,
+            role,
+            relationship_notes,
+            father_id,
+            mother_id,
+            spouse_id
+        `)
+        .eq("id", memberId)
+        .single();
+
+    if (error) {
+        alert("Unable to load this family profile.");
+        console.error(error);
+        return;
+    }
+
+    const name =
+        member.display_name ||
+        [
+            member.first_name,
+            member.middle_names,
+            member.surname
+        ].filter(Boolean).join(" ");
+
+    const photo = member.profile_photo_url
+        ? `<img src="${member.profile_photo_url}"
+                alt="${name}"
+                style="width:150px;height:150px;object-fit:cover;border-radius:50%;margin-bottom:15px;">`
+        : `<div style="font-size:100px;">👤</div>`;
+
+    const membersSection = document.getElementById("members");
+
+showPage("members");
+
+membersSection.innerHTML = `
+        <div class="card">
+
+            <button onclick="returnToMembersDirectory()">
+    ← Back to Family Members
+</button>
+
+            <div style="text-align:center;margin-top:20px;">
+                ${photo}
+
+                <h2>${name}</h2>
+
+                ${member.preferred_name
+                    ? `<p><strong>Preferred name:</strong> ${member.preferred_name}</p>`
+                    : ""}
+
+                ${member.member_number
+                    ? `<p><strong>Member No.:</strong> ${member.member_number}</p>`
+                    : ""}
+
+                ${member.role
+                    ? `<p><strong>Family role:</strong> ${member.role}</p>`
+                    : ""}
+
+                ${member.status
+                    ? `<p><strong>Status:</strong> ${member.status}</p>`
+                    : ""}
+            </div>
+
+            <hr>
+
+            <h3>Personal Information</h3>
+
+            ${member.date_of_birth
+                ? `<p><strong>Date of birth:</strong> ${member.date_of_birth}</p>`
+                : ""}
+
+            ${member.place_of_birth
+                ? `<p><strong>Place of birth:</strong> ${member.place_of_birth}</p>`
+                : ""}
+
+            ${member.gender
+                ? `<p><strong>Gender:</strong> ${member.gender}</p>`
+                : ""}
+
+            ${member.occupation
+                ? `<p><strong>Occupation:</strong> ${member.occupation}</p>`
+                : ""}
+
+            ${member.education
+                ? `<p><strong>Education:</strong> ${member.education}</p>`
+                : ""}
+
+            <h3>Contact & Location</h3>
+
+            ${member.phone
+                ? `<p><strong>Phone:</strong> ${member.phone}</p>`
+                : ""}
+
+            ${member.email
+                ? `<p><strong>Email:</strong> ${member.email}</p>`
+                : ""}
+
+            ${member.village
+                ? `<p><strong>Village:</strong> ${member.village}</p>`
+                : ""}
+
+            ${member.parish
+                ? `<p><strong>Parish:</strong> ${member.parish}</p>`
+                : ""}
+
+            ${member.sub_county
+                ? `<p><strong>Sub-county:</strong> ${member.sub_county}</p>`
+                : ""}
+
+            ${member.district
+                ? `<p><strong>District:</strong> ${member.district}</p>`
+                : ""}
+
+            ${member.country
+                ? `<p><strong>Country:</strong> ${member.country}</p>`
+                : ""}
+
+            ${member.biography
+                ? `<h3>Biography</h3><p>${member.biography}</p>`
+                : ""}
+
+            ${member.family_description
+                ? `<h3>Family Information</h3><p>${member.family_description}</p>`
+                : ""}
+
+            ${member.relationship_notes
+                ? `<h3>Relationship Notes</h3><p>${member.relationship_notes}</p>`
+                : ""}
+
+            ${member.date_of_death
+                ? `<h3>Memorial Information</h3>
+                   <p><strong>Date of death:</strong> ${member.date_of_death}</p>`
+                : ""}
+
+            ${member.burial_place
+                ? `<p><strong>Burial place:</strong> ${member.burial_place}</p>`
+                : ""}
+
+        </div>
+    `;
+    }
+    function returnToMembersDirectory() {
+
+    const membersSection = document.getElementById("members");
+
+    membersSection.innerHTML = `
+        <div class="card">
+            <h2>👨‍👩‍👧‍👦 Family Members</h2>
+            <p>Our family directory</p>
+
+            <input
+                type="search"
+                id="memberSearch"
+                placeholder="🔎 Search family members..."
+                oninput="filterMembers()"
+            >
+        </div>
+
+        <div id="membersList"></div>
+    `;
+
+    showPage("members");
+    loadFamilyMembers();
+    }
+    async function loadFamilyTree() {
+
+    const container = document.getElementById("familyTreeContainer");
+
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="card">
+            <p>Loading family tree...</p>
+        </div>
+    `;
+
+    const { data, error } = await supabaseClient
+        .from("family_members")
+        .select(`
+            id,
+            first_name,
+            middle_names,
+            surname,
+            display_name,
+            preferred_name,
+            profile_photo_url,
+            father_id,
+            mother_id,
+            spouse_id,
+            role,
+            status
+        `)
+        .order("first_name", { ascending: true });
+
+    if (error) {
+        container.innerHTML = `
+            <div class="card">
+                <h3>Unable to load family tree</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+
+        console.error(error);
+        return;
+    }
+
+    window.familyTreeMembers = data || [];
+
+    displayFamilyTree(window.familyTreeMembers);
+    }
+    function filterFamilyTree() {
+
+    const search =
+        document.getElementById("treeSearch")
+            .value
+            .toLowerCase()
+            .trim();
+
+    const filtered =
+        (window.familyTreeMembers || []).filter(member => {
+
+            const name =
+                member.display_name ||
+                [
+                    member.first_name,
+                    member.middle_names,
+                    member.surname
+                ]
+                .filter(Boolean)
+                .join(" ");
+
+            return name.toLowerCase().includes(search);
+        });
+
+    displayFamilyTree(filtered);
+}
+function displayFamilyTree(members) {
+
+    const container = document.getElementById("familyTreeContainer");
+
+    if (!container) return;
+
+    if (!members || members.length === 0) {
+        container.innerHTML = `
+            <div class="card">
+                <p>No family members found.</p>
+            </div>
+        `;
+        return;
+    }
+
+    const memberMap = {};
+
+    members.forEach(member => {
+        memberMap[member.id] = member;
+    });
+
+    function memberName(member) {
+        return member.display_name ||
+            [
+                member.first_name,
+                member.middle_names,
+                member.surname
+            ].filter(Boolean).join(" ");
+    }
+
+    function personCard(member) {
+
+        const name = memberName(member);
+
+        return `
+            <button
+                class="tree-person-button"
+                onclick="viewMemberProfile('${member.id}')">
+
+                ${
+                    member.profile_photo_url
+                    ? `<img src="${member.profile_photo_url}"
+                            class="tree-photo"
+                            alt="${name}">`
+                    : `<div class="tree-avatar">👤</div>`
+                }
+
+                <strong>${name}</strong>
+
+                ${
+                    member.role
+                    ? `<small>${member.role}</small>`
+                    : ""
+                }
+
+            </button>
+        `;
+    }
+
+    function coupleCard(member) {
+
+        let html = `
+            <div class="tree-couple">
+                ${personCard(member)}
+        `;
+
+        if (
+            member.spouse_id &&
+            memberMap[member.spouse_id]
+        ) {
+
+            const spouse = memberMap[member.spouse_id];
+
+            html += `
+                <div class="tree-spouse-line">❤️</div>
+                ${personCard(spouse)}
+            `;
+        }
+
+        html += `
+            </div>
+        `;
+
+        return html;
+    }
+
+    const children = {};
+
+members.forEach(member => {
+
+    if (member.father_id) {
+
+        if (!children[member.father_id]) {
+            children[member.father_id] = [];
+        }
+
+        if (!children[member.father_id].some(child => child.id === member.id)) {
+            children[member.father_id].push(member);
+        }
+    }
+
+    if (member.mother_id) {
+
+        if (!children[member.mother_id]) {
+            children[member.mother_id] = [];
+        }
+
+        if (!children[member.mother_id].some(child => child.id === member.id)) {
+            children[member.mother_id].push(member);
+        }
+    }
+});
+
+    const roots = members.filter(member =>
+        !member.father_id &&
+        !member.mother_id &&
+        (
+            !member.spouse_id ||
+            !memberMap[member.spouse_id] ||
+            !memberMap[member.spouse_id].father_id &&
+            !memberMap[member.spouse_id].mother_id
+        )
+    );
+
+    const displayedRoots = [];
+    const used = new Set();
+
+    roots.forEach(member => {
+
+        if (used.has(member.id)) return;
+
+        displayedRoots.push(member);
+
+        used.add(member.id);
+
+        if (member.spouse_id) {
+            used.add(member.spouse_id);
+        }
+    });
+
+    function buildGeneration(parent, level = 1) {
+
+        const childList = children[parent.id] || [];
+
+        if (childList.length === 0) {
+            return "";
+        }
+
+        let html = `
+            <div class="tree-line">↓</div>
+
+            <div class="tree-generation">
+
+                <div class="tree-generation-label">
+    ${getGenerationLabel(level)}
+</div>
+        `;
+
+        childList.forEach(child => {
+
+            if (!used.has(child.id)) {
+
+                used.add(child.id);
+
+                if (child.spouse_id) {
+                    used.add(child.spouse_id);
+                }
+
+                html += `
+                    <div class="tree-family-branch">
+
+                        ${coupleCard(child)}
+
+                        ${buildGeneration(child, level + 1)}
+
+                    </div>
+                `;
+            }
+        });
+
+        html += `
+            </div>
+        `;
+
+        return html;
+    }
+
+    let html = `
+        <div class="family-tree-visual">
+
+            <h3>🌳 Mutabazi Sabiti Family Tree</h3>
+
+            <div class="tree-generation-label">
+                👑 Family Generations
+            </div>
+            <p class="tree-help">
+                Tap a person to view their full profile.
+            </p>
+
+            <div class="tree-root">
+    `;
+
+    displayedRoots.forEach(root => {
+
+        html += `
+            <div class="tree-family-branch">
+
+                ${coupleCard(root)}
+
+                ${buildGeneration(root)}
+
+            </div>
+        `;
+    });
+
+    html += `
+            </div>
+        </div>
+    `;
+
+    container.innerHTML = html;
+}
+    function getGenerationLabel(level) {
+
+    if (level === 0) {
+        return "👑 Grandparents";
+    }
+
+    if (level === 1) {
+        return "👨‍👩‍👧‍👦 Children";
+    }
+
+    if (level === 2) {
+        return "👶 Grandchildren";
+    }
+
+    if (level === 3) {
+        return "🌱 Great-grandchildren";
+    }
+
+    return "🌳 Later Generations";
+    }
+async function loadFamilyBook() {
+
+    const book = document.getElementById("book");
+
+    if (!book) return;
+
+    book.innerHTML = `
+        <div class="card">
+            <h2>📖 Our Family Book</h2>
+            <p>Loading our family book...</p>
+        </div>
+    `;
+
+    const { data, error } = await supabaseClient
+        .from("family_book")
+        .select(`
+            id,
+            title,
+            chapter_number,
+            content,
+            cover_image_url,
+            section_type,
+            display_order
+        `)
+        .order("display_order", { ascending: true });
+
+    if (error) {
+        book.innerHTML = `
+            <div class="card">
+                <h3>Family Book database error</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+        console.error("Family Book error:", error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        book.innerHTML = `
+            <div class="card">
+                <h2>📖 Our Family Book</h2>
+                <p>No family book content has been added yet.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = `
+        <div class="card">
+            <h2>📖 Our Family Book</h2>
+            <p><strong>Our roots, our strength, our legacy.</strong></p>
+        </div>
+    `;
+
+    data.forEach(section => {
+
+        html += `
+    <div class="card">
+
+        ${section.chapter_number
+            ? `<h2>Chapter ${section.chapter_number}</h2>`
+            : ""}
+
+        ${section.title
+            ? `<h3>${section.title}</h3>`
+            : ""}
+
+        ${section.content
+            ? `<div>${section.content}</div>`
+            : ""}
+
+    </div>
+`;
+`;
+        `;
+    });
+
+    book.innerHTML = html;
+    }    
+ function openFamilyMembersAdmin() {
+    const section = document.getElementById("familyMembersAdmin");
+
+    if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+    } else {
+        alert("Family Members management area is not available yet.");
+    }
+    }   
+
+    async function loadAdminFamilyMembers() {
+
+    const container = document.getElementById("adminFamilyMembers");
+
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="card">
+            <p>Loading family members...</p>
+        </div>
+    `;
+
+    const { data, error } = await supabaseClient
+        .from("family_members")
+        .select(`
+            id,
+            member_number,
+            first_name,
+            middle_names,
+            surname,
+            display_name,
+            date_of_birth,
+            occupation,
+            role
+        `)
+        .order("first_name", { ascending: true });
+
+    if (error) {
+        container.innerHTML = `
+            <div class="card">
+                <h3>Unable to load family members</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+        console.error(error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        container.innerHTML = `
+            <div class="card">
+                <p>No family members found.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = `
+        <div class="card">
+            <h3>👨‍👩‍👧‍👦 Existing Family Members</h3>
+            <p>Select a member to edit their information.</p>
+        </div>
+    `;
+
+    data.forEach(member => {
+
+        const name =
+            member.display_name ||
+            [
+                member.first_name,
+                member.middle_names,
+                member.surname
+            ].filter(Boolean).join(" ");
+
+        html += `
+            <div class="card">
+                <h3>${name}</h3>
+
+                ${member.member_number
+                    ? `<p><strong>Member No.:</strong> ${member.member_number}</p>`
+                    : ""}
+
+                ${member.date_of_birth
+                    ? `<p><strong>Date of birth:</strong> ${member.date_of_birth}</p>`
+                    : ""}
+
+                ${member.occupation
+                    ? `<p><strong>Occupation:</strong> ${member.occupation}</p>`
+                    : ""}
+
+                ${member.role
+                    ? `<p><strong>Role:</strong> ${member.role}</p>`
+                    : ""}
+
+                <button class="primary"
+    onclick="editFamilyMember('${member.id}')">
+    ✏️ Edit Member
+</button>
+
+<button
+    onclick="deleteFamilyMember('${member.id}', '${name.replace(/'/g, "\\'")}')">
+    🗑️ Delete Member
+</button>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+}
+    async function deleteFamilyMember(memberId, memberName) {
+
+    const confirmed = confirm(
+        "Are you sure you want to delete " +
+        memberName +
+        " from the family database?\n\nThis action cannot be undone."
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    const message = document.getElementById("memberAdminMessage");
+
+    if (message) {
+        message.textContent = "Deleting " + memberName + "...";
+    }
+
+    const { error } = await supabaseClient
+        .from("family_members")
+        .delete()
+        .eq("id", memberId);
+
+    if (error) {
+
+        if (message) {
+            message.textContent =
+                "Unable to delete member: " + error.message;
+        }
+
+        console.error(error);
+        return;
+    }
+
+    if (message) {
+        message.textContent =
+            "✅ " + memberName + " was deleted successfully.";
+    }
+
+    await loadFamilyMembers();
+    await loadAdminFamilyMembers();
+    }
+    async function editFamilyMember(memberId) {
+
+    const { data: member, error } = await supabaseClient
+        .from("family_members")
+        .select("*")
+        .eq("id", memberId)
+        .single();
+
+    if (error) {
+        alert("Unable to load this family member.");
+        console.error(error);
+        return;
+    }
+
+    document.getElementById("memberFirstName").value = member.first_name || "";
+    document.getElementById("memberMiddleNames").value = member.middle_names || "";
+    document.getElementById("memberSurname").value = member.surname || "";
+    document.getElementById("memberDisplayName").value = member.display_name || "";
+    document.getElementById("memberPreferredName").value = member.preferred_name || "";
+    document.getElementById("memberDateOfBirth").value = member.date_of_birth || "";
+    document.getElementById("memberGender").value = member.gender || "";
+    document.getElementById("memberOccupation").value = member.occupation || "";
+    document.getElementById("memberPhone").value = member.phone || "";
+    document.getElementById("memberEmail").value = member.email || "";
+    document.getElementById("memberVillage").value = member.village || "";
+    document.getElementById("memberDistrict").value = member.district || "";
+    document.getElementById("memberCountry").value = member.country || "Uganda";
+    document.getElementById("memberRole").value = member.role || "";
+    document.getElementById("memberBiography").value = member.biography || "";
+        document.getElementById("memberProfilePhoto").value = "";
+
+    window.editingMemberId = memberId;
+        document.querySelector('#familyMembersAdmin button.primary').textContent =
+    "💾 Save Changes";
+
+document.querySelector('#familyMembersAdmin button.primary').setAttribute(
+    "onclick",
+    "updateFamilyMember()"
+);
+
+    document.getElementById("memberAdminMessage").textContent =
+        "✏️ Editing " + (member.display_name || member.first_name);
+
+    document.getElementById("familyMembersAdmin").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+    async function updateFamilyMember() {
+
+    const memberId = window.editingMemberId;
+
+    if (!memberId) {
+        alert("No family member is currently being edited.");
+        return;
+    }
+
+    const message = document.getElementById("memberAdminMessage");
+
+    const firstName = document.getElementById("memberFirstName").value.trim();
+    const middleNames = document.getElementById("memberMiddleNames").value.trim();
+    const surname = document.getElementById("memberSurname").value.trim();
+    const displayName = document.getElementById("memberDisplayName").value.trim();
+    const preferredName = document.getElementById("memberPreferredName").value.trim();
+    const dateOfBirth = document.getElementById("memberDateOfBirth").value;
+    const gender = document.getElementById("memberGender").value;
+    const occupation = document.getElementById("memberOccupation").value.trim();
+    const phone = document.getElementById("memberPhone").value.trim();
+    const email = document.getElementById("memberEmail").value.trim();
+    const village = document.getElementById("memberVillage").value.trim();
+    const district = document.getElementById("memberDistrict").value.trim();
+    const country = document.getElementById("memberCountry").value.trim();
+    const role = document.getElementById("memberRole").value.trim();
+    const biography = document.getElementById("memberBiography").value.trim();
+        const photoFile = document.getElementById("memberProfilePhoto").files[0];
+
+    if (!firstName || !surname) {
+        message.textContent = "Please enter the first name and surname.";
+        return;
+    }
+
+    message.textContent = "Saving changes...";
+        let photoUrl = null;
+
+if (photoFile) {
+
+    const fileExtension = photoFile.name.split(".").pop();
+
+    const fileName =
+        `${Date.now()}_${firstName}_${surname}.${fileExtension}`;
+
+    const { error: uploadError } = await supabaseClient
+        .storage
+        .from("family_photos")
+        .upload(fileName, photoFile);
+
+    if (uploadError) {
+        message.textContent =
+            "Unable to upload profile photo: " + uploadError.message;
+
+        console.error(uploadError);
+        return;
+    }
+
+    const { data: publicUrlData } = supabaseClient
+        .storage
+        .from("family_photos")
+        .getPublicUrl(fileName);
+
+    photoUrl = publicUrlData.publicUrl;
+    }
+
+    const updateData = {
+    first_name: firstName,
+    middle_names: middleNames || null,
+    surname: surname,
+    display_name: displayName || `${firstName} ${surname}`,
+    preferred_name: preferredName || null,
+    date_of_birth: dateOfBirth || null,
+    gender: gender || null,
+    occupation: occupation || null,
+    phone: phone || null,
+    email: email || null,
+    village: village || null,
+    district: district || null,
+    country: country || "Uganda",
+    role: role || null,
+    biography: biography || null
+};
+
+if (photoUrl) {
+    updateData.profile_photo_url = photoUrl;
+}
+
+const { error } = await supabaseClient
+    .from("family_members")
+    .update(updateData)
+    .eq("id", memberId);
+
+    if (error) {
+        message.textContent = "Unable to save changes: " + error.message;
+        console.error(error);
+        return;
+    }
+
+    message.textContent = "✅ Family member updated successfully.";
+
+window.editingMemberId = null;
+
+const saveButton =
+    document.querySelector('#familyMembersAdmin button.primary');
+
+saveButton.textContent = "➕ Add Family Member";
+saveButton.setAttribute("onclick", "addFamilyMember()");
+
+await loadFamilyMembers();
+await loadAdminFamilyMembers();
+    }
+    async function checkExistingSession() {
+
+    const { data, error } = await supabaseClient.auth.getSession();
+
+    if (error || !data.session) {
+        return;
+    }
+
+    document.getElementById("loginScreen").style.display = "none";
+
+    loadFamilyMembers();
+    loadFamilyGallery();
+    loadBirthdays();
+    loadAnnouncements();
+    loadFamilyBook();
+
+    checkAdminAccess();
+    }
+checkExistingSession();
+
+function openAdminDashboard() {
+
+    const user = supabaseClient.auth.getUser();
+
+    user.then(({ data, error }) => {
+
+        if (error || !data.user) {
+            alert("Please log in first.");
+            return;
+        }
+
+        if (data.user.email !== "mutabazimbabazi@gmail.com") {
+            alert("Access denied. Administrator access only.");
+            return;
+        }
+
+        document.getElementById("home").classList.remove("active");
+        document.getElementById("adminDashboard").classList.add("active");
+
+        loadAdminFamilyMembers();
+    });
+}
+async function addGalleryPhoto() {
+
+    const title =
+        document.getElementById("galleryPhotoTitle").value.trim();
+
+    const description =
+        document.getElementById("galleryPhotoDescription").value.trim();
+
+    const fileInput =
+        document.getElementById("galleryPhotoFile");
+
+    const message =
+        document.getElementById("galleryAdminMessage");
+
+    if (!title || !fileInput.files.length) {
+        message.textContent =
+            "Please enter a photo title and select a photo.";
+        return;
+    }
+
+    const file = fileInput.files[0];
+
+    message.textContent = "Uploading photo...";
+
+    const fileName =
+        Date.now() + "_" + file.name.replace(/\s+/g, "_");
+
+    const filePath =
+        "gallery/" + fileName;
+
+    const { error: uploadError } =
+        await supabaseClient.storage
+            .from("family_photos")
+            .upload(filePath, file);
+
+    if (uploadError) {
+        message.textContent =
+            "Unable to upload photo: " +
+            uploadError.message;
+
+        console.error("Gallery upload error:", uploadError);
+        return;
+    }
+
+    const { data: publicUrlData } =
+        supabaseClient.storage
+            .from("family_photos")
+            .getPublicUrl(filePath);
+
+    const photoUrl =
+        publicUrlData.publicUrl;
+
+    const { error: databaseError } =
+        await supabaseClient
+            .from("family_gallery")
+            .insert({
+                title: title,
+                description: description || null,
+                photo_url: photoUrl
+            });
+
+    if (databaseError) {
+        message.textContent =
+            "Photo uploaded, but database saving failed: " +
+            databaseError.message;
+
+        console.error(
+            "Gallery database error:",
+            databaseError
+        );
+        return;
+    }
+
+    message.textContent =
+        "✅ Family photo added successfully.";
+
+    document.getElementById("galleryPhotoTitle").value = "";
+    document.getElementById("galleryPhotoDescription").value = "";
+    document.getElementById("galleryPhotoFile").value = "";
+    }
+    async function logoutUser() {
+
+    const { error } = await supabaseClient.auth.signOut();
+
+    if (error) {
+        alert("Logout failed: " + error.message);
+        return;
+    }
+
+    document.getElementById("loginScreen").style.display = "flex";
+    document.getElementById("portalContent").style.display = "none";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+    }
+    async function postFamilyMessage() {
+
+    const messageBox = document.getElementById("familyMessage");
+    const status = document.getElementById("messageStatus");
+
+    const message = messageBox.value.trim();
+
+    if (!message) {
+        status.textContent = "Please write a message first.";
+        return;
+    }
+
+    status.textContent = "Posting message...";
+
+    const { data: { user } } =
+        await supabaseClient.auth.getUser();
+
+    if (!user) {
+        status.textContent = "Please sign in first.";
+        return;
+    }
+
+    // Find the logged-in family member
+    const { data: member, error: memberError } =
+        await supabaseClient
+            .from("family_members")
+            .select("display_name, first_name, surname")
+            .eq("email", user.email)
+            .maybeSingle();
+
+    if (memberError) {
+        console.error(memberError);
+    }
+
+    const authorName =
+    member?.display_name ||
+    `${member?.first_name || ""} ${member?.surname || ""}`.trim() ||
+    user.email;
+
+    // Save the message and member's name
+    const { error } = await supabaseClient
+        .from("family_messages")
+        .insert({
+            user_id: user.id,
+            author_name: authorName,
+            message: message
+        });
+
+    if (error) {
+        status.textContent = error.message;
+        return;
+    }
+
+    messageBox.value = "";
+    status.textContent = "Message posted successfully. ❤️";
+
+    loadFamilyMessages();
+}
+
+function escapeHtml(text) {
+
+    const div = document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+    } 
+async function loadFamilyMessages() {
+
+    const list = document.getElementById("familyMessagesList");
+
+    if (!list) return;
+
+    list.innerHTML = `
+        <div class="card">
+            <p>Loading family messages...</p>
+        </div>
+    `;
+
+    const { data: { user } } =
+        await supabaseClient.auth.getUser();
+
+    const { data, error } = await supabaseClient
+        .from("family_messages")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        list.innerHTML = `
+            <div class="card">
+                <p>Unable to load messages.</p>
+            </div>
+        `;
+        console.error(error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        list.innerHTML = `
+            <div class="card">
+                <h3>💌 No messages yet</h3>
+                <p>Be the first family member to leave a message.</p>
+            </div>
+        `;
+        return;
+    }
+
+    list.innerHTML = data.map(function(item) {
+
+        const date = new Date(item.created_at);
+
+        const isOwner =
+            user && user.id === item.user_id;
+
+        return `
+            <div class="card">
+
+                <h3 style="margin-bottom:8px;">
+                    💌 ${escapeHtml(item.author_name || "Family Member")}
+                </h3>
+
+                <p style="font-size:17px;">
+                    ${escapeHtml(item.message)}
+                </p>
+
+                <p class="small">
+                    📅 ${date.toLocaleString()}
+                </p>
+
+                ${isOwner ? `
+                    <div style="margin-top:12px;">
+
+                        <button
+    onclick="editFamilyMessage(${item.id})">
+    ✏️ Edit
+</button>
+
+                        <button
+                            onclick="deleteFamilyMessage(${item.id})">
+                            🗑️ Delete
+                        </button>
+
+                    </div>
+                ` : ""}
+
+            </div>
+        `;
+
+    }).join("");
+}
+    async function editFamilyMessage(id) {
+
+    const { data, error } = await supabaseClient
+        .from("family_messages")
+        .select("message")
+        .eq("id", id)
+        .single();
+
+    if (error) {
+        alert("Unable to load message: " + error.message);
+        console.error(error);
+        return;
+    }
+
+    const newMessage = prompt(
+        "Edit your family message:",
+        data.message
+    );
+
+    if (newMessage === null) {
+        return;
+    }
+
+    const message = newMessage.trim();
+
+    if (!message) {
+        alert("Message cannot be empty.");
+        return;
+    }
+
+    const { error: updateError } = await supabaseClient
+        .from("family_messages")
+        .update({
+            message: message
+        })
+        .eq("id", id);
+
+    if (updateError) {
+        alert("Unable to edit message: " + updateError.message);
+        console.error(updateError);
+        return;
+    }
+
+    alert("Message updated successfully. ❤️");
+
+    loadFamilyMessages();
+}
+    async function deleteFamilyMessage(id) {
+
+    const confirmed = confirm(
+        "Are you sure you want to delete this message?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    const { error } = await supabaseClient
+        .from("family_messages")
+        .delete()
+        .eq("id", id);
+
+    if (error) {
+        alert("Unable to delete message: " + error.message);
+        console.error(error);
+        return;
+    }
+
+    alert("Message deleted successfully. 🗑️");
+
+    loadFamilyMessages();
+            }
+    async function loadFamilyAchievements() {
+
+    const list = document.getElementById("achievementsList");
+
+    if (!list) return;
+
+    list.innerHTML = `
+        <div class="card">
+            <p>Loading family achievements...</p>
+        </div>
+    `;
+
+    const { data, error } = await supabaseClient
+        .from("family_achievements")
+        .select("*")
+        .order("achievement_date", { ascending: false });
+
+    if (error) {
+
+        list.innerHTML = `
+            <div class="card">
+                <p>Unable to load achievements.</p>
+            </div>
+        `;
+
+        console.error(error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+
+        list.innerHTML = `
+            <div class="card">
+                <h3>🏆 No achievements yet</h3>
+                <p>
+                    Family achievements and milestones
+                    will appear here.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+    list.innerHTML = data.map(function(item) {
+
+        const date = item.achievement_date
+            ? new Date(item.achievement_date).toLocaleDateString()
+            : "";
+
+        return `
+            <div class="card achievement-card">
+
+                <h2>
+                    🏆 ${escapeHtml(item.title)}
+                </h2>
+
+                ${
+                    item.member_name
+                    ? `<p><strong>👤 ${escapeHtml(item.member_name)}</strong></p>`
+                    : ""
+                }
+
+                ${
+                    item.category
+                    ? `<p>📌 ${escapeHtml(item.category)}</p>`
+                    : ""
+                }
+
+                ${
+                    item.description
+                    ? `<p>${escapeHtml(item.description)}</p>`
+                    : ""
+                }
+
+                ${
+                    date
+                    ? `<p class="small">📅 ${date}</p>`
+                    : ""
+                }
+
+                ${
+                    item.photo_url
+                    ? `
+                        <img
+                            src="${escapeHtml(item.photo_url)}"
+                            alt="${escapeHtml(item.title)}"
+                            style="width:100%; max-width:500px; border-radius:12px; margin-top:10px;"
+                        >
+                    `
+                    : ""
+                }
+
+            </div>
+        `;
+
+    }).join("");
+        }
+    async function addFamilyAchievement() {
+
+    const title = document.getElementById("achievementTitle").value.trim();
+    const member = document.getElementById("achievementMember").value.trim();
+    const category = document.getElementById("achievementCategory").value;
+    const date = document.getElementById("achievementDate").value;
+    const description = document.getElementById("achievementDescription").value.trim();
+    const status = document.getElementById("achievementAdminStatus");
+
+    if (!title) {
+        status.textContent = "Please enter an achievement title.";
+        return;
+    }
+
+    status.textContent = "Adding achievement...";
+
+    const { data: { user } } =
+        await supabaseClient.auth.getUser();
+
+    if (!user || user.email !== "mutabazimbabazi@gmail.com") {
+        status.textContent = "You are not authorized to add achievements.";
+        return;
+    }
+
+    const { error } = await supabaseClient
+        .from("family_achievements")
+        .insert({
+            title: title,
+            member_name: member || null,
+            category: category || null,
+            achievement_date: date || null,
+            description: description || null
+        });
+
+    if (error) {
+        status.textContent = "Unable to add achievement.";
+        console.error(error);
+        alert("Error: " + error.message);
+        return;
+    }
+
+    status.textContent = "Achievement added successfully! 🏆";
+
+    document.getElementById("achievementTitle").value = "";
+    document.getElementById("achievementMember").value = "";
+    document.getElementById("achievementCategory").value = "";
+    document.getElementById("achievementDate").value = "";
+    document.getElementById("achievementDescription").value = "";
+
+    loadAdminAchievements();
+    loadFamilyAchievements();
+    }
+    async function loadAdminAchievements() {
+
+    const list = document.getElementById("adminAchievementsList");
+
+    if (!list) return;
+
+    list.innerHTML = `
+        <div class="card">
+            <p>Loading achievements...</p>
+        </div>
+    `;
+
+    const { data, error } = await supabaseClient
+        .from("family_achievements")
+        .select("*")
+        .order("achievement_date", { ascending: false });
+
+    if (error) {
+
+        list.innerHTML = `
+            <div class="card">
+                <p>Unable to load achievements.</p>
+            </div>
+        `;
+
+        console.error(error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+
+        list.innerHTML = `
+            <div class="card">
+                <p>No achievements have been added yet.</p>
+            </div>
+        `;
+
+        return;
+    }
+
+    list.innerHTML = data.map(function(item) {
+
+        const date = item.achievement_date
+            ? new Date(item.achievement_date).toLocaleDateString()
+            : "";
+
+        return `
+            <div class="card">
+
+                <h3>
+                    🏆 ${escapeHtml(item.title)}
+                </h3>
+
+                ${
+                    item.member_name
+                    ? `<p>👤 <strong>${escapeHtml(item.member_name)}</strong></p>`
+                    : ""
+                }
+
+                ${
+                    item.category
+                    ? `<p>📌 ${escapeHtml(item.category)}</p>`
+                    : ""
+                }
+
+                ${
+                    item.description
+                    ? `<p>${escapeHtml(item.description)}</p>`
+                    : ""
+                }
+
+                ${
+    date
+    ? `<p class="small">📅 ${date}</p>`
+    : ""
+}
+
+<button
+    onclick="editFamilyAchievement(${item.id})"
+    style="margin-top:10px;"
+>
+    ✏️ Edit
+</button>
+
+<button
+    onclick="deleteFamilyAchievement(${item.id})"
+    style="margin-top:10px;"
+>
+    🗑️ Delete
+</button>
+
+</div>
+        `;
+
+    }).join("");
+    }
+    async function deleteFamilyAchievement(id) {
+
+    const confirmed = confirm(
+        "Are you sure you want to delete this achievement?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    const { data: { user } } =
+        await supabaseClient.auth.getUser();
+
+    if (!user || user.email !== "mutabazimbabazi@gmail.com") {
+        alert("You are not authorized to delete achievements.");
+        return;
+    }
+
+    const { error } = await supabaseClient
+        .from("family_achievements")
+        .delete()
+        .eq("id", id);
+
+    if (error) {
+        alert("Unable to delete achievement: " + error.message);
+        console.error(error);
+        return;
+    }
+
+    alert("Achievement deleted successfully. 🗑️");
+
+    loadAdminAchievements();
+    loadFamilyAchievements();
+    }
+    async function editFamilyAchievement(id) {
+
+    const { data, error } = await supabaseClient
+        .from("family_achievements")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+    if (error) {
+        alert("Unable to load achievement: " + error.message);
+        console.error(error);
+        return;
+    }
+
+    const title = prompt(
+        "Edit achievement title:",
+        data.title || ""
+    );
+
+    if (title === null) return;
+
+    const member = prompt(
+        "Edit family member name:",
+        data.member_name || ""
+    );
+
+    if (member === null) return;
+
+    const description = prompt(
+        "Edit achievement description:",
+        data.description || ""
+    );
+
+    if (description === null) return;
+
+    const { data: { user } } =
+        await supabaseClient.auth.getUser();
+
+    if (!user || user.email !== "mutabazimbabazi@gmail.com") {
+        alert("You are not authorized to edit achievements.");
+        return;
+    }
+
+    const { error: updateError } = await supabaseClient
+        .from("family_achievements")
+        .update({
+            title: title.trim(),
+            member_name: member.trim() || null,
+            description: description.trim() || null
+        })
+        .eq("id", id);
+
+    if (updateError) {
+        alert("Unable to update achievement: " + updateError.message);
+        console.error(updateError);
+        return;
+    }
+
+    alert("Achievement updated successfully. ✏️");
+
+    loadAdminAchievements();
+    loadFamilyAchievements();
+    }
+</script>
+</body>
+  </html>
