@@ -2462,7 +2462,7 @@ async function loadAnnouncements() {
     `;
 
     const { data, error } = await supabaseClient
-        .from("Announcements")
+        .from("announcements")
         .select("id, title, content")
 .order("created_at", { ascending: false });
     if (error) {
